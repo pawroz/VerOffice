@@ -14,6 +14,8 @@
     --ink-soft: #45525b;
     --paper: #f4f2ec;
     --paper-deep: #eae5da;
+    --navy: #1c3150;
+    --gold: #9c7a3c;
     --accent: #7a2e2e;
     --accent-deep: #5c2222;
     --line: #d7d1c4;
@@ -50,19 +52,21 @@
   }
   .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 28px; max-width: 1080px; margin: 0 auto; }
   .brand { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
-  .brand span { color: var(--accent); }
+  .brand span { color: var(--navy); }
+  .nav-right { display: flex; align-items: center; gap: 28px; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent); }
+  .nav-cta { padding: 9px 20px; font-size: 0.85rem; }
   .nav-toggle { display: none; background: none; border: 0; font-size: 1.5rem; cursor: pointer; color: var(--ink); }
 
   /* ---------- Hero ---------- */
   .hero { padding: 96px 0 88px; border-bottom: 1px solid var(--line); }
   .hero-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 56px; align-items: end; }
-  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.4rem); }
+  .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
   .hero h1 em { font-style: italic; color: var(--accent); }
   .hero .lead { margin-top: 24px; font-size: 1.15rem; color: var(--ink-soft); max-width: 34ch; }
-  .hero-meta { border-left: 2px solid var(--accent); padding-left: 22px; }
+  .hero-meta { border-left: 2px solid var(--navy); padding-left: 22px; }
   .hero-meta dt { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); margin-top: 18px; }
   .hero-meta dt:first-child { margin-top: 0; }
   .hero-meta dd { font-family: 'Fraunces', serif; font-size: 1.05rem; color: var(--ink); }
@@ -71,21 +75,22 @@
     display: inline-block; padding: 14px 28px; font-weight: 600; font-size: 0.95rem;
     text-decoration: none; transition: all 0.2s; border: 1px solid var(--accent);
   }
-  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary { background: var(--accent); color: var(--paper); }
   .btn-primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
   .btn-ghost { color: var(--accent); background: transparent; }
-  .btn-ghost:hover { background: var(--accent); color: #fff; }
+  .btn-ghost:hover { background: var(--accent); color: var(--paper); }
 
   /* ---------- Sections ---------- */
   section { padding: 84px 0; }
   .section-head { max-width: 44ch; margin-bottom: 48px; }
-  .section-head h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); margin-top: 14px; }
+  .section-head h2 { font-size: clamp(1.7rem, 3vw, 2rem); margin-top: 14px; }
 
   /* ---------- Services ---------- */
   .services { background: var(--paper-deep); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
   .service {
     background: var(--paper-deep); padding: 34px 30px; transition: background 0.25s;
+    border-top: 2px solid var(--gold);
   }
   .service:hover { background: var(--paper); }
   .service .num { font-family: 'Fraunces', serif; color: var(--accent); font-size: 0.95rem; font-weight: 600; }
@@ -98,7 +103,7 @@
   .about p:last-child { margin-bottom: 0; }
   .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); border: 1px solid var(--line); }
   .stat { background: var(--paper); padding: 32px 26px; }
-  .stat .figure { font-family: 'Fraunces', serif; font-size: 2.6rem; color: var(--accent); line-height: 1; }
+  .stat .figure { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); line-height: 1; }
   .stat .label { font-size: 0.82rem; color: var(--ink-soft); margin-top: 10px; }
 
   /* ---------- Contact ---------- */
@@ -130,6 +135,7 @@
     .service-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
     .nav-links.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: var(--paper); padding: 20px 28px; border-bottom: 1px solid var(--line); gap: 18px; }
+    .nav-cta { display: none; }
     .nav-toggle { display: block; }
     .hero { padding: 64px 0 56px; }
     section { padding: 60px 0; }
@@ -146,12 +152,15 @@
 <header>
   <nav class="nav">
     <a href="#top" class="brand">Kancelaria <span>[Nazwa]</span></a>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">≡</button>
-    <ul class="nav-links">
-      <li><a href="#uslugi">Usługi</a></li>
-      <li><a href="#kancelaria">O kancelarii</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#kancelaria">O kancelarii</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="btn btn-primary nav-cta">Umów konsultację</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">≡</button>
+    </div>
   </nav>
 </header>
 
@@ -227,7 +236,7 @@
     <div class="wrap about-grid">
       <div class="about reveal">
         <p class="eyebrow"><span class="mark">§</span> O kancelarii</p>
-        <h2 style="font-size:clamp(1.9rem,4vw,2.8rem);margin:14px 0 24px;">Doświadczenie, na którym można polegać</h2>
+        <h2 style="font-size:clamp(1.7rem,3vw,2rem);margin:14px 0 24px;">Doświadczenie, na którym można polegać</h2>
         <p>[Tu wpisz krótki opis kancelarii — kilka zdań o tym, kim jesteście, jakie wartości Wam przyświecają i dlaczego klienci Wam ufają.]</p>
         <p>Każdą sprawę prowadzimy indywidualnie, dbając o zrozumiały język i realny plan działania — bez prawniczego żargonu tam, gdzie nie jest potrzebny.</p>
       </div>
