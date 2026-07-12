@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^blog/?$ blog.php [L,QSA]
+RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ artykul.php?slug=$1 [L,QSA]

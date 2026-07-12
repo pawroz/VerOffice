@@ -1,5 +1,7 @@
 <?php
 declare(strict_types=1);
+require_once __DIR__ . '/includes/functions.php';
+$latestArticles = array_slice(get_articles(), 0, 2);
 require __DIR__ . '/includes/header.php';
 ?>
 
@@ -167,23 +169,10 @@ require __DIR__ . '/includes/header.php';
   <div class="grid-media">
     <div data-reveal>
       <h2 class="section-title section-title--xs">Blog prawniczy</h2>
-      <div class="media-item">
-        <div class="media-thumb"><div class="img-placeholder" role="img" aria-label="Miniatura artykułu">miniatura</div></div>
-        <div>
-          <h4 class="media-title">Jak skutecznie dochodzić swoich praw?</h4>
-          <p class="media-desc">Praktyczne wskazówki, które pomogą Ci lepiej zrozumieć proces i uniknąć błędów.</p>
-          <a href="#media" class="link-arrow link-arrow--brown" data-scroll-to="media">Czytaj więcej →</a>
-        </div>
-      </div>
-      <div class="media-item">
-        <div class="media-thumb"><div class="img-placeholder" role="img" aria-label="Miniatura artykułu">miniatura</div></div>
-        <div>
-          <h4 class="media-title">Umowa o pracę – na co zwrócić uwagę?</h4>
-          <p class="media-desc">Najważniejsze klauzule, które warto sprawdzić przed podpisaniem umowy.</p>
-          <a href="#media" class="link-arrow link-arrow--brown" data-scroll-to="media">Czytaj więcej →</a>
-        </div>
-      </div>
-      <a href="#media" class="link-underline" data-scroll-to="media">Zobacz wszystkie artykuły →</a>
+      <?php foreach ($latestArticles as $article): ?>
+        <?php require __DIR__ . '/includes/partials/article-card.php'; ?>
+      <?php endforeach; ?>
+      <a href="/blog" class="link-underline">Zobacz wszystkie artykuły →</a>
     </div>
     <div class="media-right" data-reveal data-reveal-delay="100">
       <h2 class="section-title section-title--xs">Aktualności</h2>

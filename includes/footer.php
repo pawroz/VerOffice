@@ -1,4 +1,8 @@
-<?php declare(strict_types=1); ?>
+<?php
+declare(strict_types=1);
+$homePrefix = $homePrefix ?? '';
+$activeStaticNav = $activeStaticNav ?? null;
+?>
 <footer class="site-footer">
   <div class="grid-footer">
     <div>
@@ -15,17 +19,17 @@
     <div>
       <h5 class="footer-heading">Szybkie linki</h5>
       <div class="footer-links">
-        <a href="#about" class="footer-link" data-scroll-to="about">O mnie</a>
-        <a href="#spec" class="footer-link" data-scroll-to="spec">Specjalizacje</a>
-        <a href="#spec" class="footer-link" data-scroll-to="spec">Usługi</a>
+        <a href="<?= h($homePrefix) ?>#about" class="footer-link" data-scroll-to="about">O mnie</a>
+        <a href="<?= h($homePrefix) ?>#spec" class="footer-link" data-scroll-to="spec">Specjalizacje</a>
+        <a href="<?= h($homePrefix) ?>#spec" class="footer-link" data-scroll-to="spec">Usługi</a>
       </div>
     </div>
     <div>
       <h5 class="footer-heading">&nbsp;</h5>
       <div class="footer-links">
-        <a href="#media" class="footer-link" data-scroll-to="media">Blog</a>
-        <a href="#media" class="footer-link" data-scroll-to="media">Aktualności</a>
-        <a href="#contact" class="footer-link" data-scroll-to="contact">Kontakt</a>
+        <a href="/blog" class="footer-link">Blog</a>
+        <a href="<?= h($homePrefix) ?>#media" class="footer-link" data-scroll-to="media">Aktualności</a>
+        <a href="<?= h($homePrefix) ?>#contact" class="footer-link" data-scroll-to="contact">Kontakt</a>
       </div>
     </div>
     <div>
@@ -57,15 +61,15 @@
     <button type="button" class="mobile-close" id="mobileCloseBtn" aria-label="Zamknij menu">×</button>
   </div>
   <nav class="mobile-nav">
-    <a href="#home" class="mobile-nav-link" data-scroll-to="home" data-close-mobile>Strona Główna</a>
-    <a href="#about" class="mobile-nav-link" data-scroll-to="about" data-close-mobile>O mnie</a>
-    <a href="#spec" class="mobile-nav-link" data-scroll-to="spec" data-close-mobile>Specjalizacje</a>
-    <a href="#spec" class="mobile-nav-link" data-scroll-to="spec" data-close-mobile>Usługi</a>
-    <a href="#media" class="mobile-nav-link" data-scroll-to="media" data-close-mobile>Blog</a>
-    <a href="#media" class="mobile-nav-link" data-scroll-to="media" data-close-mobile>Aktualności</a>
-    <a href="#contact" class="mobile-nav-link" data-scroll-to="contact" data-close-mobile>Kontakt</a>
+    <a href="<?= h($homePrefix) ?>#home" class="mobile-nav-link" data-scroll-to="home" data-close-mobile>Strona Główna</a>
+    <a href="<?= h($homePrefix) ?>#about" class="mobile-nav-link" data-scroll-to="about" data-close-mobile>O mnie</a>
+    <a href="<?= h($homePrefix) ?>#spec" class="mobile-nav-link" data-scroll-to="spec" data-close-mobile>Specjalizacje</a>
+    <a href="<?= h($homePrefix) ?>#spec" class="mobile-nav-link" data-scroll-to="spec" data-close-mobile>Usługi</a>
+    <a href="/blog" class="mobile-nav-link" data-close-mobile>Blog</a>
+    <a href="<?= h($homePrefix) ?>#media" class="mobile-nav-link" data-scroll-to="media" data-close-mobile>Aktualności</a>
+    <a href="<?= h($homePrefix) ?>#contact" class="mobile-nav-link" data-scroll-to="contact" data-close-mobile>Kontakt</a>
   </nav>
-  <a href="#contact" class="mobile-cta" data-scroll-to="contact" data-close-mobile>Umów Spotkanie</a>
+  <a href="<?= h($homePrefix) ?>#contact" class="mobile-cta" data-scroll-to="contact" data-close-mobile>Umów Spotkanie</a>
 </div>
 
 <div class="modal-overlay" id="contactModal">
@@ -107,6 +111,6 @@
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
 </button>
 
-<script src="assets/js/main.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

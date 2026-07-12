@@ -12,16 +12,23 @@
 
   document.querySelectorAll('[data-scroll-to]').forEach(function (el) {
     el.addEventListener('click', function (e) {
-      e.preventDefault();
-      scrollToId(el.getAttribute('data-scroll-to'));
+      var id = el.getAttribute('data-scroll-to');
+      // On the homepage the target section is in the DOM — smooth-scroll to
+      // it. On any other page it isn't, so let the link's href (which
+      // already points to /#id) navigate there normally.
+      if (document.getElementById(id)) {
+        e.preventDefault();
+        scrollToId(id);
+      }
     });
   });
 
-  /* ---------- Scroll-spy nav highlighting ---------- */
+  /* ---------- Scroll-spy nav highlighting (homepage only) ---------- */
   var sections = ['home', 'about', 'spec', 'contact', 'media'];
   var navEls = Array.from(document.querySelectorAll('[data-nav]'));
 
   function updateActiveNav() {
+    if (!document.getElementById('home')) return;
     var y = window.scrollY + 100;
     var current = 'home';
     sections.forEach(function (id) {
@@ -106,7 +113,9 @@
     });
   }
 
-  openFormBtn.addEventListener('click', openContactModal);
+  // openFormBtn only exists on the homepage contact section — other pages
+  // (blog, article) don't have a "Napisz wiadomość" trigger yet.
+  if (openFormBtn) openFormBtn.addEventListener('click', openContactModal);
   modalCloseBtn.addEventListener('click', closeContactModal);
   modalCloseBtn2.addEventListener('click', closeContactModal);
   contactModal.addEventListener('click', function (e) {
@@ -132,6 +141,11 @@
   });
 
   /* ---------- Booking calendar (front-end only, no backend/Google Calendar) ---------- */
+  /* Only present on the homepage contact section — guard the whole block. */
+  var calGrid = document.getElementById('calGrid');
+  if (calGrid) initBookingCalendar();
+
+  function initBookingCalendar() {
   var MONTHS_LOWER = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca', 'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'];
   var MONTHS_CAPS = ['STYCZEŃ', 'LUTY', 'MARZEC', 'KWIECIEŃ', 'MAJ', 'CZERWIEC', 'LIPIEC', 'SIERPIEŃ', 'WRZESIEŃ', 'PAŹDZIERNIK', 'LISTOPAD', 'GRUDZIEŃ'];
 
@@ -144,7 +158,6 @@
   };
 
   var calMonthLabel = document.getElementById('calMonthLabel');
-  var calGrid = document.getElementById('calGrid');
   var calPrevBtn = document.getElementById('calPrevBtn');
   var calNextBtn = document.getElementById('calNextBtn');
   var hourChips = Array.from(document.querySelectorAll('.hour-chip'));
@@ -225,4 +238,5 @@
   });
 
   renderCalendar();
+  } // end initBookingCalendar
 })();
