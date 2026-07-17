@@ -38,7 +38,7 @@ $ogType = $ogType ?? 'website';
 
 <header class="site-header">
   <div class="navwrap">
-    <a href="<?= h($homePrefix) ?>#home" class="brand" data-scroll-to="home">
+    <a href="/" class="brand"<?= $isHome ? ' data-scroll-to="home"' : '' ?>>
       <span class="brand-mark">WL</span>
       <span class="brand-divider"></span>
       <span class="brand-text">
@@ -47,7 +47,7 @@ $ogType = $ogType ?? 'website';
       </span>
     </a>
     <nav class="nav-links">
-      <a href="<?= h($homePrefix) ?>#home" class="nav-link" data-nav data-active="home" data-scroll-to="home">Strona Główna</a>
+      <a href="/" class="nav-link" data-nav data-active="home"<?= $isHome ? ' data-scroll-to="home"' : '' ?>>Strona Główna</a>
       <a href="<?= h($homePrefix) ?>#about" class="nav-link" data-nav data-active="about" data-scroll-to="about">O Mnie</a>
       <a href="<?= h($homePrefix) ?>#spec" class="nav-link" data-nav data-active="spec" data-scroll-to="spec">Specjalizacje</a>
       <a href="<?= h($homePrefix) ?>#spec" class="nav-link" data-nav data-active="none" data-scroll-to="spec">Usługi</a>
