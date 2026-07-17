@@ -87,12 +87,7 @@
     el.addEventListener('click', closeMobileMenu);
   });
 
-  /* ---------- Contact modal (front-end only — see note below) ---------- */
-  /*
-   * Zgodnie z zakresem tej migracji formularz NIE wysyła wiadomości nigdzie —
-   * tylko waliduje i pokazuje ekran "Dziękujemy", identycznie jak w prototypie.
-   * Realne wysyłanie e-maila (PHP mail()/SMTP) to osobne zadanie.
-   */
+  /* ---------- Contact modal ---------- */
   var contactModal = document.getElementById('contactModal');
   var contactModalBox = document.getElementById('contactModalBox');
   var openFormBtn = document.getElementById('openFormBtn');
@@ -137,7 +132,24 @@
     if (!msg) { document.getElementById('cf-msg-error').classList.add('is-visible'); hasError = true; }
     if (hasError) return;
 
-    contactModalBox.classList.add('is-sent');
+    var submitBtn = document.getElementById('cfSubmitBtn');
+    submitBtn.disabled = true;
+
+    fetch('/send-message.php', { method: 'POST', body: new FormData(contactForm) })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.success) {
+          contactModalBox.classList.add('is-sent');
+        } else {
+          document.getElementById('cf-server-error').classList.add('is-visible');
+        }
+      })
+      .catch(function () {
+        document.getElementById('cf-server-error').classList.add('is-visible');
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+      });
   });
 
   /* ---------- Booking calendar (front-end only, no backend/Google Calendar) ---------- */

@@ -13,6 +13,9 @@ const SITE_TITLE = 'Weronika Leśna — Kancelaria Prawna | Radca prawny w Kalis
 const SITE_DESCRIPTION = 'Kancelaria Prawna Weronika Leśna — radca prawny w Kaliszu. Prawo cywilne, gospodarcze, rodzinne, pracy i karne. Umów konsultację.';
 const SITE_URL = 'https://www.kancelaria-lesna.pl';
 
+// Testowy adres — docelowo do zmiany na skrzynkę kancelarii.
+const CONTACT_FORM_RECIPIENT = 'pawerozpochowski@gmail.com';
+
 function h(?string $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');

@@ -87,6 +87,8 @@ $activeStaticNav = $activeStaticNav ?? null;
       <h3 class="modal-title">Napisz wiadomość</h3>
       <div class="divider-gold" style="width:44px"></div>
 
+      <input type="text" name="website" id="cf-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+
       <label class="form-label" for="cf-name">Imię i nazwisko</label>
       <input class="form-input" type="text" id="cf-name" name="name" autocomplete="name">
       <p class="form-error" id="cf-name-error">Podaj imię i nazwisko.</p>
@@ -102,7 +104,9 @@ $activeStaticNav = $activeStaticNav ?? null;
       <p class="form-error" id="cf-msg-error">Napisz treść wiadomości.</p>
       <div class="form-spacer--lg"></div>
 
-      <button type="submit" class="btn btn-gold btn-block">Wyślij wiadomość</button>
+      <p class="form-error" id="cf-server-error">Nie udało się wysłać wiadomości. Spróbuj ponownie lub zadzwoń: <?= h(FIRM_PHONE) ?>.</p>
+
+      <button type="submit" class="btn btn-gold btn-block" id="cfSubmitBtn">Wyślij wiadomość</button>
     </form>
   </div>
 </div>
@@ -111,6 +115,6 @@ $activeStaticNav = $activeStaticNav ?? null;
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
 </button>
 
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js?v=<?= filemtime(__DIR__ . '/../assets/js/main.js') ?>"></script>
 </body>
 </html>
