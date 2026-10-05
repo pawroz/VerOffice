@@ -2,6 +2,7 @@
 declare(strict_types=1);
 require_once __DIR__ . '/includes/functions.php';
 $latestArticles = array_slice(get_articles(), 0, 2);
+$aboutLead = get_about_paragraphs(ABOUT_LEAD_COUNT);
 require __DIR__ . '/includes/header.php';
 ?>
 
@@ -20,8 +21,8 @@ require __DIR__ . '/includes/header.php';
     <div class="hero-portrait" data-reveal data-reveal-delay="120">
       <div class="hero-portrait-frame">
         <picture>
-          <source srcset="/assets/img/weronika-lesna-radca-prawny.webp" type="image/webp">
-          <img src="/assets/img/weronika-lesna-radca-prawny.jpg" width="920" height="1380" alt="<?= h(FIRM_LAWYER_NAME) ?> — radca prawny, Kancelaria Prawna w Kaliszu" fetchpriority="high" decoding="async">
+          <source srcset="/assets/img/weronika-lesna-prawnik.webp" type="image/webp">
+          <img src="/assets/img/weronika-lesna-prawnik.jpg" width="920" height="1380" alt="<?= h(FIRM_LAWYER_NAME) ?> — Kancelaria Prawna w Kaliszu" fetchpriority="high" decoding="async">
         </picture>
       </div>
     </div>
@@ -31,20 +32,27 @@ require __DIR__ . '/includes/header.php';
 <section id="about" class="about">
   <div class="grid-about">
     <div class="about-portrait" data-reveal>
-      <div class="img-placeholder" role="img" aria-label="Wnętrze kancelarii — biurko, notes, detale">biuro · notes · detal</div>
+      <picture>
+        <source srcset="/assets/img/weronika-lesna-o-mnie.webp" type="image/webp">
+        <img src="/assets/img/weronika-lesna-o-mnie.jpg" width="720" height="1080" alt="<?= h(FIRM_LAWYER_NAME) ?> — prawnik, obsługa prawna przedsiębiorców" loading="lazy" decoding="async">
+      </picture>
     </div>
     <div data-reveal data-reveal-delay="90">
       <h2 class="section-title">O mnie</h2>
       <div class="divider-gold"></div>
-      <p class="about-bio">Jestem radcą prawnym z wieloletnim doświadczeniem w obsłudze klientów indywidualnych oraz biznesowych. Stawiam na rzetelność, dyskrecję i rozwiązania dopasowane do Twoich potrzeb.</p>
-      <a href="#contact" class="btn-outline" data-scroll-to="contact">Zobacz więcej</a>
+      <div class="about-bio about-text">
+        <?php foreach ($aboutLead as $paragraph): ?>
+          <p><?= h($paragraph) ?></p>
+        <?php endforeach; ?>
+      </div>
+      <a href="/o-mnie" class="btn-outline">Czytaj więcej</a>
     </div>
     <div class="about-features" data-reveal data-reveal-delay="180">
       <div class="feature-row">
         <svg class="feature-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 12.5 7 21l5-3 5 3-1.5-8.5"></path></svg>
         <div>
           <h4 class="feature-title">Doświadczenie</h4>
-          <p class="feature-desc">Ponad 10 lat praktyki w różnych dziedzinach prawa.</p>
+          <p class="feature-desc">Kilkuletnia praktyka w obsłudze prawnej przedsiębiorców.</p>
         </div>
       </div>
       <div class="feature-row">
@@ -78,33 +86,33 @@ require __DIR__ . '/includes/header.php';
     <div class="divider-gold divider-gold--center" data-reveal></div>
     <div class="grid-spec" data-reveal data-reveal-delay="80">
       <div class="spec-card">
-        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M12 6.2 5 9M5 9l-2.4 5a2.7 2.7 0 0 0 4.8 0L5 9M12 6.2 19 9M19 9l-2.4 5a2.7 2.7 0 0 0 4.8 0L19 9"></path></svg>
-        <h4 class="spec-title">Prawo cywilne</h4>
-        <p class="spec-desc">Sprawy majątkowe, umowy, odszkodowania, spory sądowe.</p>
-        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
-      </div>
-      <div class="spec-card">
         <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1.5"></rect><path d="M8 7V5.4A2 2 0 0 1 10 3.4h4a2 2 0 0 1 2 2V7M3 12.5h18"></path></svg>
-        <h4 class="spec-title">Prawo gospodarcze</h4>
-        <p class="spec-desc">Obsługa firm, kontrakty handlowe, windykacja, spory gospodarcze.</p>
-        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
-      </div>
-      <div class="spec-card">
-        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"></circle><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"></path><path d="M16 5.2a3.4 3.4 0 0 1 0 5.9M17 15.2c2.1.4 3.9 2.1 3.9 4.8"></path></svg>
-        <h4 class="spec-title">Prawo rodzinne</h4>
-        <p class="spec-desc">Rozwody, alimenty, podział majątku, opieka nad dziećmi.</p>
+        <h4 class="spec-title">Obsługa przedsiębiorców</h4>
+        <p class="spec-desc">Stałe doradztwo i bieżące sprawy związane z prowadzeniem działalności.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
       <div class="spec-card">
         <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 12h6M9 16h6"></path></svg>
-        <h4 class="spec-title">Prawo pracy</h4>
-        <p class="spec-desc">Umowy, zwolnienia, spory pracownicze, doradztwo.</p>
+        <h4 class="spec-title">Umowy</h4>
+        <p class="spec-desc">Przygotowanie, negocjowanie i analiza umów oraz dokumentacji.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
       <div class="spec-card">
-        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3.5 8-7 10-3.5-2-7-5-7-10V6z"></path><path d="M9 11.5l2 2 4-4"></path></svg>
-        <h4 class="spec-title">Prawo karne</h4>
-        <p class="spec-desc">Obrona w postępowaniach karnych, reprezentacja pokrzywdzonych.</p>
+        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg>
+        <h4 class="spec-title">Nieruchomości</h4>
+        <p class="spec-desc">Nabycie nieruchomości, najem, bieżące zarządzanie nieruchomościami.</p>
+        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
+      </div>
+      <div class="spec-card">
+        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l6-3v15M10 21V3l10 4v14M3 21h18M14 10h2M14 14h2M6.5 12h1M6.5 16h1"></path></svg>
+        <h4 class="spec-title">Procesy inwestycyjne</h4>
+        <p class="spec-desc">Wsparcie na każdym etapie inwestycji – od przygotowania po proces budowlany.</p>
+        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
+      </div>
+      <div class="spec-card">
+        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3z"></path><path d="M14 9h4l3 3.5V16h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>
+        <h4 class="spec-title">Transport i spedycja</h4>
+        <p class="spec-desc">Umowy przewozu i spedycji, odpowiedzialność stron, usługi logistyczne.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
     </div>

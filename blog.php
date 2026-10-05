@@ -5,7 +5,7 @@ require_once __DIR__ . '/includes/functions.php';
 $articles = get_articles();
 
 $pageTitle = 'Blog prawniczy — ' . FIRM_LAWYER_NAME . ' | Kancelaria Prawna';
-$pageDescription = 'Artykuły i porady prawne ' . FIRM_LABEL . ' ' . FIRM_LAWYER_NAME . ' — prawo cywilne, gospodarcze, rodzinne, pracy i karne.';
+$pageDescription = 'Artykuły i porady prawne ' . FIRM_LABEL . ' ' . FIRM_LAWYER_NAME . ' — prawo dla przedsiębiorców, umowy, nieruchomości, inwestycje i transport.';
 $canonicalUrl = SITE_URL . '/blog';
 $isHome = false;
 $activeStaticNav = 'blog';
@@ -17,7 +17,7 @@ require __DIR__ . '/includes/header.php';
   <div class="blog-hero-wrap">
     <h1 class="section-title section-title--on-dark" data-reveal>Blog prawniczy</h1>
     <div class="divider-gold" data-reveal></div>
-    <p class="blog-hero-lead" data-reveal data-reveal-delay="80">Praktyczne artykuły i porady z zakresu prawa cywilnego, gospodarczego, rodzinnego, pracy i karnego.</p>
+    <p class="blog-hero-lead" data-reveal data-reveal-delay="80">Praktyczne artykuły i porady prawne dla przedsiębiorców – umowy, nieruchomości, inwestycje i transport.</p>
   </div>
 </section>
 

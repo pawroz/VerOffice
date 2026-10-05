@@ -7,6 +7,15 @@ const PL_MONTHS = [
     'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia',
 ];
 
+// Liczba akapitów "O mnie" widocznych na stronie głównej (reszta na /o-mnie).
+const ABOUT_LEAD_COUNT = 2;
+
+function get_about_paragraphs(?int $limit = null): array
+{
+    $paragraphs = require __DIR__ . '/../data/about.php';
+    return $limit === null ? $paragraphs : array_slice($paragraphs, 0, $limit);
+}
+
 function get_articles(): array
 {
     static $articles = null;

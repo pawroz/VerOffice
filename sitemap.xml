@@ -8,6 +8,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.kancelaria-lesna.pl/o-mnie</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kancelaria-lesna.pl/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

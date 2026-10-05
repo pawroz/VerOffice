@@ -9,8 +9,8 @@ const FIRM_PHONE = '+48 665 782 601';
 const FIRM_EMAIL = 'lesna.prawnik@gmail.com';
 const FIRM_HOURS = 'Pon – Pt: 9:00 – 17:00';
 
-const SITE_TITLE = 'Weronika Leśna — Kancelaria Prawna | Radca prawny w Kaliszu';
-const SITE_DESCRIPTION = 'Kancelaria Prawna Weronika Leśna — radca prawny w Kaliszu. Prawo cywilne, gospodarcze, rodzinne, pracy i karne. Umów konsultację.';
+const SITE_TITLE = 'Weronika Leśna — Kancelaria Prawna | Obsługa prawna firm w Kaliszu';
+const SITE_DESCRIPTION = 'Kancelaria Prawna Weronika Leśna w Kaliszu. Obsługa prawna przedsiębiorców, umowy, nieruchomości i inwestycje, prawo transportowe. Umów konsultację.';
 const SITE_URL = 'https://www.kancelaria-lesna.pl';
 
 // Testowy adres — docelowo do zmiany na skrzynkę kancelarii.
