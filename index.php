@@ -19,7 +19,10 @@ require __DIR__ . '/includes/header.php';
     </div>
     <div class="hero-portrait" data-reveal data-reveal-delay="120">
       <div class="hero-portrait-frame">
-        <div class="img-placeholder" role="img" aria-label="Weronika Leśna, radca prawny — portret, format 4:5">portret prawnika · 4:5</div>
+        <picture>
+          <source srcset="/assets/img/weronika-lesna-radca-prawny.webp" type="image/webp">
+          <img src="/assets/img/weronika-lesna-radca-prawny.jpg" width="920" height="1380" alt="<?= h(FIRM_LAWYER_NAME) ?> — radca prawny, Kancelaria Prawna w Kaliszu" fetchpriority="high" decoding="async">
+        </picture>
       </div>
     </div>
   </div>
