@@ -112,7 +112,7 @@ img{max-width:100%;display:block}
 
 /* ===== About ===== */
 .about{background:#F6F2EB}
-.grid-about{max-width:1340px;margin:0 auto;padding:106px 40px;display:grid;grid-template-columns:.82fr 1fr 1fr;gap:56px;align-items:start}
+.grid-about{max-width:1340px;margin:0 auto;padding:106px 40px;display:grid;grid-template-columns:1.05fr 1fr .9fr;gap:56px;align-items:start}
 .about-portrait{position:relative;aspect-ratio:4/5;border-radius:3px;overflow:hidden}
 .about-bio{font-size:16px;line-height:1.8;color:#5b4a3f;margin:0 0 34px;font-weight:300}
 .about-text{display:flex;flex-direction:column;gap:18px}
@@ -180,16 +180,20 @@ img{max-width:100%;display:block}
 .media-desc{font-size:13px;line-height:1.6;color:#6a584c;margin:0 0 10px;font-weight:300}
 .news-item{display:flex;gap:24px;margin-bottom:30px}
 .news-item:last-of-type{margin-bottom:36px}
-.news-date{flex:none;text-align:center;width:52px}
+.news-date{flex:none;text-align:center;width:64px}
 .news-day{font-family:'Cormorant Garamond',serif;font-size:32px;color:#2D241E;line-height:1}
 .news-month{font-size:10px;letter-spacing:1.5px;color:#C6A06A}
 .news-title{font-size:16px;color:#2D241E;margin:0 0 8px;font-weight:600}
+.trainings-lead{font-size:15px;line-height:1.75;color:#5b4a3f;margin:0 0 22px;font-weight:300}
+.tag-list{list-style:none;margin:0 0 34px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.tag-list li{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#6a584c;border:1px solid rgba(198,160,106,.55);border-radius:2px;padding:7px 12px}
 
 .article-meta{display:flex;align-items:center;gap:8px;margin-bottom:8px}
 .article-meta-category{font-size:10px;letter-spacing:1.2px;text-transform:uppercase;color:#C6A06A;font-weight:600}
 .article-meta-dot{color:rgba(45,36,30,.35)}
 .article-meta-date{font-size:12px;color:#8a7666}
 .media-title-link{color:inherit}
+.media-thumb img,.article-thumb img{display:block;width:100%;height:100%;object-fit:cover}
 
 /* ===== Blog listing page (blog.php) ===== */
 .blog-hero{background:linear-gradient(180deg,#241A16 0%,#1f1611 100%)}
@@ -211,7 +215,25 @@ img{max-width:100%;display:block}
 .article-author{font-size:13px;color:#8a7666;margin:0 0 34px}
 .article-thumb{aspect-ratio:16/9;border-radius:3px;overflow:hidden;margin-bottom:44px}
 .article-body p{font-size:16px;line-height:1.8;color:#5b4a3f;margin:0 0 24px;font-weight:300}
+.article-body h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;letter-spacing:.3px;color:#2D241E;margin:52px 0 18px}
+.article-box{background:#EFE8DC;border-left:2px solid #C6A06A;border-radius:0 3px 3px 0;padding:24px 28px;margin:0 0 28px}
+.article-box p{margin:0 0 12px}
+.article-box p:last-child{margin-bottom:0}
 .article-wrap > .btn-outline{margin-top:20px}
+
+/* ===== Szkolenia (podstrona) ===== */
+.trainings-page{background:#F6F2EB}
+.trainings-page-wrap{max-width:1180px;margin:0 auto;padding:90px 40px 110px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;align-items:start}
+.trainings-page-wrap--single{grid-template-columns:minmax(0,1fr);max-width:760px}
+.trainings-heading{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;letter-spacing:.3px;color:#2D241E;margin:0 0 18px}
+.trainings-heading:not(:first-child){margin-top:44px}
+.trainings-text{font-size:16px;line-height:1.8;color:#5b4a3f;margin:0;font-weight:300}
+.tag-list + .trainings-text{margin-top:-16px}
+.dash-list{list-style:none;margin:0;padding:0}
+.dash-list li{position:relative;padding-left:26px;font-size:16px;line-height:1.8;color:#5b4a3f;font-weight:300}
+.dash-list li::before{content:"";position:absolute;left:0;top:.9em;width:14px;height:1px;background:#C6A06A}
+.trainings-cta{margin:48px 0 0}
+.trainings-cta p{font-size:16px;line-height:1.75;color:#5b4a3f;font-weight:300;margin:0 0 20px}
 
 /* ===== O mnie (podstrona) ===== */
 .about-page{background:#F6F2EB}
@@ -310,6 +332,7 @@ img{max-width:100%;display:block}
   .blog-list-wrap .media-thumb{width:120px;height:96px}
   .article-wrap{padding:76px 32px 90px}
   .about-page-wrap{grid-template-columns:1fr;gap:46px;padding:76px 32px 90px}
+  .trainings-page-wrap{grid-template-columns:1fr;gap:56px;padding:76px 32px 90px}
   .about-page-photo{order:-1;max-width:460px;width:100%;margin:0 auto}
   .article-title{font-size:36px}
 }
@@ -332,6 +355,7 @@ img{max-width:100%;display:block}
   .blog-list-wrap .media-thumb{width:100%;height:180px}
   .article-wrap{padding:60px 20px 76px}
   .about-page-wrap{padding:60px 20px 76px}
+  .trainings-page-wrap{padding:60px 20px 76px}
   .article-title{font-size:30px}
   .back-to-top{right:16px;bottom:16px;width:40px;height:40px}
 }

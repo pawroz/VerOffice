@@ -90,7 +90,6 @@
   /* ---------- Contact modal ---------- */
   var contactModal = document.getElementById('contactModal');
   var contactModalBox = document.getElementById('contactModalBox');
-  var openFormBtn = document.getElementById('openFormBtn');
   var modalCloseBtn = document.getElementById('modalCloseBtn');
   var modalCloseBtn2 = document.getElementById('modalCloseBtn2');
   var contactForm = document.getElementById('contactForm');
@@ -108,9 +107,11 @@
     });
   }
 
-  // openFormBtn only exists on the homepage contact section — other pages
-  // (blog, article) don't have a "Napisz wiadomość" trigger yet.
-  if (openFormBtn) openFormBtn.addEventListener('click', openContactModal);
+  // The modal lives in the shared footer, so any page can open it with a
+  // [data-open-contact] trigger (homepage contact section, /szkolenia CTA).
+  document.querySelectorAll('[data-open-contact]').forEach(function (btn) {
+    btn.addEventListener('click', openContactModal);
+  });
   modalCloseBtn.addEventListener('click', closeContactModal);
   modalCloseBtn2.addEventListener('click', closeContactModal);
   contactModal.addEventListener('click', function (e) {

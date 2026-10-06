@@ -3,6 +3,8 @@ declare(strict_types=1);
 require_once __DIR__ . '/includes/functions.php';
 $latestArticles = array_slice(get_articles(), 0, 2);
 $aboutLead = get_about_paragraphs(ABOUT_LEAD_COUNT);
+$trainingsOffer = get_trainings_offer();
+$latestTrainings = get_trainings(2);
 require __DIR__ . '/includes/header.php';
 ?>
 
@@ -33,14 +35,14 @@ require __DIR__ . '/includes/header.php';
   <div class="grid-about">
     <div class="about-portrait" data-reveal>
       <picture>
-        <source srcset="/assets/img/weronika-lesna-o-mnie.webp" type="image/webp">
-        <img src="/assets/img/weronika-lesna-o-mnie.jpg" width="720" height="1080" alt="<?= h(FIRM_LAWYER_NAME) ?> — prawnik, obsługa prawna przedsiębiorców" loading="lazy" decoding="async">
+        <source type="image/webp" srcset="/assets/img/weronika-lesna-o-mnie.webp 720w, /assets/img/weronika-lesna-o-mnie-1024.webp 1024w" sizes="(max-width: 1024px) 100vw, 420px">
+        <img src="/assets/img/weronika-lesna-o-mnie.jpg" srcset="/assets/img/weronika-lesna-o-mnie.jpg 720w, /assets/img/weronika-lesna-o-mnie-1024.jpg 1024w" sizes="(max-width: 1024px) 100vw, 420px" width="720" height="1080" alt="<?= h(FIRM_LAWYER_NAME) ?> — prawnik, obsługa prawna przedsiębiorców" loading="lazy" decoding="async">
       </picture>
     </div>
     <div data-reveal data-reveal-delay="90">
       <h2 class="section-title">O mnie</h2>
       <div class="divider-gold"></div>
-      <div class="about-bio about-text">
+      <div class="about-bio about-text about-text--justify">
         <?php foreach ($aboutLead as $paragraph): ?>
           <p><?= h($paragraph) ?></p>
         <?php endforeach; ?>
@@ -98,21 +100,21 @@ require __DIR__ . '/includes/header.php';
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
       <div class="spec-card">
-        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg>
-        <h4 class="spec-title">Nieruchomości</h4>
-        <p class="spec-desc">Nabycie nieruchomości, najem, bieżące zarządzanie nieruchomościami.</p>
+        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M12 6.2 5 9M5 9l-2.4 5a2.7 2.7 0 0 0 4.8 0L5 9M12 6.2 19 9M19 9l-2.4 5a2.7 2.7 0 0 0 4.8 0L19 9"></path></svg>
+        <h4 class="spec-title">Prawo cywilne</h4>
+        <p class="spec-desc">Roszczenia i odszkodowania, wezwania do zapłaty oraz polubowne rozwiązywanie sporów.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
       <div class="spec-card">
-        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l6-3v15M10 21V3l10 4v14M3 21h18M14 10h2M14 14h2M6.5 12h1M6.5 16h1"></path></svg>
-        <h4 class="spec-title">Procesy inwestycyjne</h4>
-        <p class="spec-desc">Wsparcie na każdym etapie inwestycji – od przygotowania po proces budowlany.</p>
+        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg>
+        <h4 class="spec-title">Nieruchomości i inwestycje</h4>
+        <p class="spec-desc">Nabywanie i sprzedaż nieruchomości, najem, procesy inwestycyjne i budowlane oraz zarządzanie nieruchomościami.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
       <div class="spec-card">
         <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3z"></path><path d="M14 9h4l3 3.5V16h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>
         <h4 class="spec-title">Transport i spedycja</h4>
-        <p class="spec-desc">Umowy przewozu i spedycji, odpowiedzialność stron, usługi logistyczne.</p>
+        <p class="spec-desc">Umowy przewozu i spedycji, odpowiedzialność przewoźników i spedytorów, roszczenia i reklamacje w branży TSL.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
     </div>
@@ -137,12 +139,12 @@ require __DIR__ . '/includes/header.php';
         <svg class="contact-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"></rect><path d="m3 7 9 6 9-6"></path></svg>
         <p class="contact-text"><a href="mailto:<?= h(FIRM_EMAIL) ?>" class="contact-text"><?= h(FIRM_EMAIL) ?></a></p>
       </div>
-      <div class="contact-row" style="margin-bottom:38px">
+      <div class="contact-row contact-row--top" style="margin-bottom:38px">
         <svg class="contact-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-        <p class="contact-text"><?= h(FIRM_HOURS) ?></p>
+        <p class="contact-text contact-text--address"><?= h(FIRM_AVAILABILITY) ?></p>
       </div>
 
-      <button type="button" class="btn btn-dark" id="openFormBtn">Napisz wiadomość</button>
+      <button type="button" class="btn btn-dark" data-open-contact>Napisz wiadomość</button>
     </div>
 
     <div class="booking-panel">
@@ -185,25 +187,18 @@ require __DIR__ . '/includes/header.php';
       <?php endforeach; ?>
       <a href="/blog" class="link-underline">Zobacz wszystkie artykuły →</a>
     </div>
-    <div class="media-right" data-reveal data-reveal-delay="100">
-      <h2 class="section-title section-title--xs">Aktualności</h2>
-      <div class="news-item">
-        <div class="news-date"><div class="news-day">14</div><div class="news-month">MAJ</div></div>
-        <div>
-          <h4 class="news-title">Zmiany w Kodeksie pracy od czerwca 2025</h4>
-          <p class="media-desc">Nowe przepisy wprowadzają istotne zmiany dla pracodawców i pracowników. Sprawdź, co się zmienia.</p>
-          <a href="#media" class="link-arrow link-arrow--brown" data-scroll-to="media">Czytaj więcej →</a>
-        </div>
-      </div>
-      <div class="news-item">
-        <div class="news-date"><div class="news-day">06</div><div class="news-month">MAJ</div></div>
-        <div>
-          <h4 class="news-title">Nowelizacja przepisów o ochronie danych</h4>
-          <p class="media-desc">Omówienie najważniejszych zmian w RODO i ich wpływ na przedsiębiorców.</p>
-          <a href="#media" class="link-arrow link-arrow--brown" data-scroll-to="media">Czytaj więcej →</a>
-        </div>
-      </div>
-      <a href="#media" class="link-underline" data-scroll-to="media">Zobacz wszystkie aktualności →</a>
+    <div class="media-right" id="szkolenia" data-reveal data-reveal-delay="100">
+      <h2 class="section-title section-title--xs">Szkolenia</h2>
+      <p class="trainings-lead"><?= h($trainingsOffer['lead']) ?></p>
+      <ul class="tag-list">
+        <?php foreach ($trainingsOffer['topics'] as $topic): ?>
+          <li><?= h($topic) ?></li>
+        <?php endforeach; ?>
+      </ul>
+      <?php foreach ($latestTrainings as $training): ?>
+        <?php require __DIR__ . '/includes/partials/training-item.php'; ?>
+      <?php endforeach; ?>
+      <a href="/szkolenia" class="link-underline">Więcej o szkoleniach →</a>
     </div>
   </div>
 </section>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 $__href = '/blog/' . rawurlencode($article['slug']);
 ?>
 <div class="media-item">
-  <div class="media-thumb"><div class="img-placeholder" role="img" aria-label="Miniatura artykułu: <?= h($article['title']) ?>">miniatura</div></div>
+  <a href="<?= h($__href) ?>" class="media-thumb" tabindex="-1" aria-hidden="true"><?= render_article_image($article) ?></a>
   <div>
     <div class="article-meta">
       <span class="article-meta-category"><?= h($article['category']) ?></span>

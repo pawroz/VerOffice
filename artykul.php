@@ -43,8 +43,17 @@ $jsonLd = [
     'publisher' => ['@type' => 'Organization', 'name' => FIRM_LABEL . ' ' . FIRM_LAWYER_NAME],
     'mainEntityOfPage' => $canonicalUrl,
 ];
+$ogImage = !empty($article['image']) ? SITE_URL . '/assets/img/' . $article['image'] . '.jpg' : null;
+if ($ogImage) {
+    $jsonLd['image'] = $ogImage;
+}
 $jsonLdEncoded = str_replace('</', '<\/', json_encode($jsonLd, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 $extraHead = '<script type="application/ld+json">' . $jsonLdEncoded . '</script>';
+if ($ogImage) {
+    $extraHead .= "\n" . '<meta property="og:image" content="' . h($ogImage) . '">'
+        . "\n" . '<meta property="og:image:width" content="1200">'
+        . "\n" . '<meta property="og:image:height" content="675">';
+}
 
 require __DIR__ . '/includes/header.php';
 ?>
@@ -62,12 +71,22 @@ require __DIR__ . '/includes/header.php';
     <p class="article-author" data-reveal>Autor: <?= h(FIRM_LAWYER_NAME) ?></p>
 
     <div class="article-thumb" data-reveal data-reveal-delay="80">
-      <div class="img-placeholder" role="img" aria-label="Zdjęcie ilustracyjne artykułu">miniatura</div>
+      <?= render_article_image($article, false) ?>
     </div>
 
     <div class="article-body" data-reveal data-reveal-delay="120">
-      <?php foreach ($article['body'] as $paragraph): ?>
-        <p><?= h($paragraph) ?></p>
+      <?php foreach ($article['body'] as $block): ?>
+        <?php if (is_string($block)): ?>
+          <p><?= h($block) ?></p>
+        <?php elseif (isset($block['h2'])): ?>
+          <h2><?= h($block['h2']) ?></h2>
+        <?php elseif (isset($block['box'])): ?>
+          <div class="article-box">
+            <?php foreach ($block['box'] as $paragraph): ?>
+              <p><?= h($paragraph) ?></p>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
       <?php endforeach; ?>
     </div>
 

@@ -13,9 +13,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.kancelaria-lesna.pl/szkolenia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kancelaria-lesna.pl/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kancelaria-lesna.pl/blog/ulga-na-start-przy-jdg</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.kancelaria-lesna.pl/blog/jak-skutecznie-dochodzic-swoich-praw</loc>

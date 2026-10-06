@@ -28,7 +28,7 @@ $activeStaticNav = $activeStaticNav ?? null;
       <h5 class="footer-heading">&nbsp;</h5>
       <div class="footer-links">
         <a href="/blog" class="footer-link">Blog</a>
-        <a href="<?= h($homePrefix) ?>#media" class="footer-link" data-scroll-to="media">Aktualności</a>
+        <a href="/szkolenia" class="footer-link">Szkolenia</a>
         <a href="<?= h($homePrefix) ?>#contact" class="footer-link" data-scroll-to="contact">Kontakt</a>
       </div>
     </div>
@@ -66,7 +66,7 @@ $activeStaticNav = $activeStaticNav ?? null;
     <a href="<?= h($homePrefix) ?>#spec" class="mobile-nav-link" data-scroll-to="spec" data-close-mobile>Specjalizacje</a>
     <a href="<?= h($homePrefix) ?>#spec" class="mobile-nav-link" data-scroll-to="spec" data-close-mobile>Usługi</a>
     <a href="/blog" class="mobile-nav-link" data-close-mobile>Blog</a>
-    <a href="<?= h($homePrefix) ?>#media" class="mobile-nav-link" data-scroll-to="media" data-close-mobile>Aktualności</a>
+    <a href="/szkolenia" class="mobile-nav-link" data-close-mobile>Szkolenia</a>
     <a href="<?= h($homePrefix) ?>#contact" class="mobile-nav-link" data-scroll-to="contact" data-close-mobile>Kontakt</a>
   </nav>
   <a href="<?= h($homePrefix) ?>#contact" class="mobile-cta" data-scroll-to="contact" data-close-mobile>Umów Spotkanie</a>

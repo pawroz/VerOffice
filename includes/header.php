@@ -52,7 +52,7 @@ $ogType = $ogType ?? 'website';
       <a href="<?= h($homePrefix) ?>#spec" class="nav-link" data-nav data-active="spec" data-scroll-to="spec">Specjalizacje</a>
       <a href="<?= h($homePrefix) ?>#spec" class="nav-link" data-nav data-active="none" data-scroll-to="spec">Usługi</a>
       <a href="/blog" class="nav-link<?= $activeStaticNav === 'blog' ? ' is-active' : '' ?>">Blog</a>
-      <a href="<?= h($homePrefix) ?>#media" class="nav-link" data-nav data-active="media" data-scroll-to="media">Aktualności</a>
+      <a href="/szkolenia" class="nav-link<?= $activeStaticNav === 'trainings' ? ' is-active' : '' ?>">Szkolenia</a>
       <a href="<?= h($homePrefix) ?>#contact" class="nav-link" data-nav data-active="contact" data-scroll-to="contact">Kontakt</a>
     </nav>
     <a href="<?= h($homePrefix) ?>#contact" class="nav-cta" data-scroll-to="contact">Umów Spotkanie</a>

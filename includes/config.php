@@ -7,7 +7,7 @@ const FIRM_ADDRESS_LINE1 = 'ul. Łowiecka 7';
 const FIRM_ADDRESS_LINE2 = '62-800 Kalisz';
 const FIRM_PHONE = '+48 665 782 601';
 const FIRM_EMAIL = 'lesna.prawnik@gmail.com';
-const FIRM_HOURS = 'Pon – Pt: 9:00 – 17:00';
+const FIRM_AVAILABILITY = 'Spotkania oraz konsultacje odbywają się po wcześniejszym umówieniu terminu.';
 
 const SITE_TITLE = 'Weronika Leśna — Kancelaria Prawna | Obsługa prawna firm w Kaliszu';
 const SITE_DESCRIPTION = 'Kancelaria Prawna Weronika Leśna w Kaliszu. Obsługa prawna przedsiębiorców, umowy, nieruchomości i inwestycje, prawo transportowe. Umów konsultację.';
