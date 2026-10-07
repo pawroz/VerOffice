@@ -2,32 +2,32 @@
 <!-- Przy dodaniu artykułu w data/articles.php dopisz tu jego adres /blog/{slug}. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.kancelaria-lesna.pl/</loc>
+    <loc>https://lesnaprawo.pl/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.kancelaria-lesna.pl/o-mnie</loc>
+    <loc>https://lesnaprawo.pl/o-mnie</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.kancelaria-lesna.pl/szkolenia</loc>
+    <loc>https://lesnaprawo.pl/szkolenia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.kancelaria-lesna.pl/blog</loc>
+    <loc>https://lesnaprawo.pl/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.kancelaria-lesna.pl/blog/ulga-na-start-przy-jdg</loc>
+    <loc>https://lesnaprawo.pl/blog/ulga-na-start-przy-jdg</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.kancelaria-lesna.pl/polityka-prywatnosci</loc>
+    <loc>https://lesnaprawo.pl/polityka-prywatnosci</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

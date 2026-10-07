@@ -1,5 +1,13 @@
 RewriteEngine On
 
+# Jeden adres kanoniczny: https://lesnaprawo.pl (bez www). Warunki na hosta
+# sprawiają, że lokalny podgląd (localhost) nie jest przekierowywany.
+RewriteCond %{HTTP_HOST} ^www\.lesnaprawo\.pl$ [NC]
+RewriteRule ^ https://lesnaprawo.pl%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^lesnaprawo\.pl$ [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://lesnaprawo.pl%{REQUEST_URI} [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
