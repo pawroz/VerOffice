@@ -4,8 +4,8 @@ require_once __DIR__ . '/includes/functions.php';
 
 $articles = get_articles();
 
-$pageTitle = 'Blog prawniczy — ' . FIRM_LAWYER_NAME . ' | Kancelaria Prawna';
-$pageDescription = 'Artykuły i porady prawne ' . FIRM_LABEL . ' ' . FIRM_LAWYER_NAME . ' — prawo dla przedsiębiorców, umowy, nieruchomości, inwestycje i transport.';
+$pageTitle = 'Blog prawniczy — ' . FIRM_LAWYER_NAME . ' | ' . FIRM_LABEL;
+$pageDescription = 'Artykuły i porady prawne — ' . FIRM_LAWYER_NAME . ' ' . FIRM_LABEL . '. Prawo cywilne, gospodarcze, nieruchomości, pracy i transportowe.';
 $canonicalUrl = SITE_URL . '/blog';
 $isHome = false;
 $activeStaticNav = 'blog';

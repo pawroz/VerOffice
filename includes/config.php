@@ -2,18 +2,26 @@
 declare(strict_types=1);
 
 const FIRM_LAWYER_NAME = 'Weronika Leśna';
-const FIRM_LABEL = 'Kancelaria Prawna';
+const FIRM_LABEL = 'Obsługa Prawna';
+// Podpis pod nazwiskiem w logo (nagłówek, menu mobilne, stopka) — wielkimi literami jak w projekcie.
+const BRAND_TAGLINE = 'OBSŁUGA PRAWNA';
 const FIRM_ADDRESS_LINE1 = 'ul. Łowiecka 7';
 const FIRM_ADDRESS_LINE2 = '62-800 Kalisz';
 const FIRM_PHONE = '+48 665 782 601';
 const FIRM_EMAIL = 'lesna.prawnik@gmail.com';
+// Dane rejestrowe (CEIDG) — używane w polityce prywatności (RODO).
+const FIRM_LEGAL_NAME = 'Weronika Leśna Obsługa Prawna Kalisz';
+const FIRM_NIP = '6182214105';
+const PRIVACY_POLICY_UPDATED = '2026-10-06';
+
 const FIRM_AVAILABILITY = 'Spotkania oraz konsultacje odbywają się po wcześniejszym umówieniu terminu.';
 
-const SITE_TITLE = 'Weronika Leśna — Kancelaria Prawna | Obsługa prawna firm w Kaliszu';
-const SITE_DESCRIPTION = 'Kancelaria Prawna Weronika Leśna w Kaliszu. Obsługa prawna przedsiębiorców, umowy, nieruchomości i inwestycje, prawo transportowe. Umów konsultację.';
+const SITE_TITLE = 'Weronika Leśna — Obsługa Prawna | Prawnik w Kaliszu i Poznaniu';
+const SITE_DESCRIPTION = 'Weronika Leśna Obsługa Prawna — Kalisz, Poznań i zdalnie w całej Polsce. Prawo cywilne, gospodarcze, nieruchomości, pracy oraz transportowe. Umów konsultację.';
 const SITE_URL = 'https://www.kancelaria-lesna.pl';
 
-// Testowy adres — docelowo do zmiany na skrzynkę kancelarii.
+// TODO przed publikacją: testowy adres — zmienić na skrzynkę firmową
+// (najlepiej we własnej domenie zamiast prywatnego Gmaila — patrz polityka prywatności).
 const CONTACT_FORM_RECIPIENT = 'pawerozpochowski@gmail.com';
 
 function h(?string $value): string

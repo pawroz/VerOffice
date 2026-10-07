@@ -11,7 +11,7 @@ $activeStaticNav = $activeStaticNav ?? null;
         <span class="footer-divider"></span>
         <span class="footer-brandtext">
           <span class="footer-name"><?= h(FIRM_LAWYER_NAME) ?></span>
-          <span class="footer-tagline">KANCELARIA PRAWNA</span>
+          <span class="footer-tagline"><?= h(BRAND_TAGLINE) ?></span>
         </span>
       </div>
       <p class="footer-desc">Profesjonalna obsługa prawna oparta na zaufaniu, dyskrecji i skuteczności.</p>
@@ -43,10 +43,9 @@ $activeStaticNav = $activeStaticNav ?? null;
   </div>
   <div class="footer-divider-line">
     <div class="footer-bottom">
-      <span class="footer-copy">© <?= date('Y') ?> Kancelaria Prawna <?= h(FIRM_LAWYER_NAME) ?>. Wszelkie prawa zastrzeżone.</span>
+      <span class="footer-copy">© <?= date('Y') ?> <?= h(FIRM_LAWYER_NAME) ?> <?= h(FIRM_LABEL) ?>. Wszelkie prawa zastrzeżone.</span>
       <span class="footer-legal">
-        <a href="#" class="footer-legal-link">Polityka prywatności</a>
-        <a href="#" class="footer-legal-link">Regulamin</a>
+        <a href="/polityka-prywatnosci" class="footer-legal-link">Polityka prywatności (RODO)</a>
       </span>
     </div>
   </div>
@@ -56,7 +55,7 @@ $activeStaticNav = $activeStaticNav ?? null;
   <div class="mobile-menu-top">
     <span class="brand-text">
       <span class="brand-name"><?= h(FIRM_LAWYER_NAME) ?></span>
-      <span class="brand-tagline">KANCELARIA PRAWNA</span>
+      <span class="brand-tagline"><?= h(BRAND_TAGLINE) ?></span>
     </span>
     <button type="button" class="mobile-close" id="mobileCloseBtn" aria-label="Zamknij menu">×</button>
   </div>
@@ -105,6 +104,8 @@ $activeStaticNav = $activeStaticNav ?? null;
       <div class="form-spacer--lg"></div>
 
       <p class="form-error" id="cf-server-error">Nie udało się wysłać wiadomości. Spróbuj ponownie lub zadzwoń: <?= h(FIRM_PHONE) ?>.</p>
+
+      <p class="form-privacy">Administratorem danych podanych w formularzu jest <?= h(FIRM_LAWYER_NAME) ?>. Dane przetwarzam wyłącznie w celu odpowiedzi na wiadomość i dalszej korespondencji. Szczegóły, w tym przysługujące Ci prawa: <a href="/polityka-prywatnosci" target="_blank" rel="noopener">Polityka prywatności (RODO)</a>.</p>
 
       <button type="submit" class="btn btn-gold btn-block" id="cfSubmitBtn">Wyślij wiadomość</button>
     </form>

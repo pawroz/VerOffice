@@ -10,7 +10,7 @@ $activeStaticNav = 'blog';
 
 if (!$article) {
     http_response_code(404);
-    $pageTitle = 'Nie znaleziono artykułu | ' . FIRM_LABEL . ' ' . FIRM_LAWYER_NAME;
+    $pageTitle = 'Nie znaleziono artykułu | ' . FIRM_LAWYER_NAME . ' ' . FIRM_LABEL;
     $pageDescription = SITE_DESCRIPTION;
     $canonicalUrl = SITE_URL . '/blog';
     require __DIR__ . '/includes/header.php';
@@ -28,7 +28,7 @@ if (!$article) {
     exit;
 }
 
-$pageTitle = $article['title'] . ' | Blog ' . FIRM_LABEL . ' ' . FIRM_LAWYER_NAME;
+$pageTitle = $article['title'] . ' | Blog — ' . FIRM_LAWYER_NAME . ' ' . FIRM_LABEL;
 $pageDescription = $article['excerpt'];
 $canonicalUrl = SITE_URL . '/blog/' . rawurlencode($article['slug']);
 $ogType = 'article';
@@ -40,7 +40,7 @@ $jsonLd = [
     'description' => $article['excerpt'],
     'datePublished' => $article['date'],
     'author' => ['@type' => 'Person', 'name' => FIRM_LAWYER_NAME],
-    'publisher' => ['@type' => 'Organization', 'name' => FIRM_LABEL . ' ' . FIRM_LAWYER_NAME],
+    'publisher' => ['@type' => 'Organization', 'name' => FIRM_LAWYER_NAME . ' ' . FIRM_LABEL],
     'mainEntityOfPage' => $canonicalUrl,
 ];
 $ogImage = !empty($article['image']) ? SITE_URL . '/assets/img/' . $article['image'] . '.jpg' : null;

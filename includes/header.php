@@ -43,7 +43,7 @@ $ogType = $ogType ?? 'website';
       <span class="brand-divider"></span>
       <span class="brand-text">
         <span class="brand-name"><?= h(FIRM_LAWYER_NAME) ?></span>
-        <span class="brand-tagline">KANCELARIA PRAWNA</span>
+        <span class="brand-tagline"><?= h(BRAND_TAGLINE) ?></span>
       </span>
     </a>
     <nav class="nav-links">

@@ -4,6 +4,7 @@ require_once __DIR__ . '/includes/functions.php';
 
 $offer = get_trainings_offer();
 $trainings = get_trainings();
+$trainingFull = true;
 
 $pageTitle = 'Szkolenia prawne dla firm — ' . FIRM_LAWYER_NAME . ' | ' . FIRM_LABEL . ' w Kaliszu';
 $pageDescription = 'Szkolenia prawne dla firm, zespołów pracowników i wydarzeń branżowych: ' . mb_strtolower(implode(', ', $offer['topics'])) . '. Praktycznie i zrozumiale.';
@@ -26,7 +27,7 @@ require __DIR__ . '/includes/header.php';
   <div class="trainings-page-wrap<?= $trainings ? '' : ' trainings-page-wrap--single' ?>">
     <div data-reveal>
       <h2 class="trainings-heading">Tematyka</h2>
-      <ul class="tag-list">
+      <ul class="dash-list">
         <?php foreach ($offer['topics'] as $topic): ?>
           <li><?= h($topic) ?></li>
         <?php endforeach; ?>

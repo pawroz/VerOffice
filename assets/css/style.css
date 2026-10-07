@@ -183,6 +183,10 @@ img{max-width:100%;display:block}
 .news-date{flex:none;text-align:center;width:64px}
 .news-day{font-family:'Cormorant Garamond',serif;font-size:32px;color:#2D241E;line-height:1}
 .news-month{font-size:10px;letter-spacing:1.5px;color:#C6A06A}
+.news-day--sm{font-size:24px;margin-top:2px}
+.training-organizer{font-size:12px;line-height:1.5;color:#8a7666;margin:0 0 8px}
+.training-photo{display:block;margin:14px 0 18px;border-radius:3px;overflow:hidden}
+.training-photo img{display:block;width:100%;height:auto}
 .news-title{font-size:16px;color:#2D241E;margin:0 0 8px;font-weight:600}
 .trainings-lead{font-size:15px;line-height:1.75;color:#5b4a3f;margin:0 0 22px;font-weight:300}
 .tag-list{list-style:none;margin:0 0 34px;padding:0;display:flex;flex-wrap:wrap;gap:10px}
@@ -216,6 +220,12 @@ img{max-width:100%;display:block}
 .article-thumb{aspect-ratio:16/9;border-radius:3px;overflow:hidden;margin-bottom:44px}
 .article-body p{font-size:16px;line-height:1.8;color:#5b4a3f;margin:0 0 24px;font-weight:300}
 .article-body h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;letter-spacing:.3px;color:#2D241E;margin:52px 0 18px}
+.article-body ul{margin:0 0 24px;padding:0;list-style:none}
+.article-body li{position:relative;padding-left:26px;font-size:16px;line-height:1.8;color:#5b4a3f;font-weight:300;margin-bottom:8px}
+.article-body li::before{content:"";position:absolute;left:0;top:.9em;width:14px;height:1px;background:#C6A06A}
+.legal-title{margin-top:34px}
+.legal-body h2{font-size:26px;margin:44px 0 14px}
+.legal-body a{color:#b07d3f;text-decoration:underline;text-underline-offset:2px}
 .article-box{background:#EFE8DC;border-left:2px solid #C6A06A;border-radius:0 3px 3px 0;padding:24px 28px;margin:0 0 28px}
 .article-box p{margin:0 0 12px}
 .article-box p:last-child{margin-bottom:0}
@@ -228,7 +238,7 @@ img{max-width:100%;display:block}
 .trainings-heading{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;letter-spacing:.3px;color:#2D241E;margin:0 0 18px}
 .trainings-heading:not(:first-child){margin-top:44px}
 .trainings-text{font-size:16px;line-height:1.8;color:#5b4a3f;margin:0;font-weight:300}
-.tag-list + .trainings-text{margin-top:-16px}
+.dash-list + .trainings-text{margin-top:14px}
 .dash-list{list-style:none;margin:0;padding:0}
 .dash-list li{position:relative;padding-left:26px;font-size:16px;line-height:1.8;color:#5b4a3f;font-weight:300}
 .dash-list li::before{content:"";position:absolute;left:0;top:.9em;width:14px;height:1px;background:#C6A06A}
@@ -296,6 +306,8 @@ img{max-width:100%;display:block}
 .form-input{width:100%;padding:13px 14px;border:1px solid rgba(45,36,30,.22);border-radius:4px;font-size:14px;color:#2D241E;background:#fff;margin-bottom:4px;outline:none}
 .form-error{font-size:12px;color:#b5573f;margin:0 0 12px;display:none}
 .form-error.is-visible{display:block}
+.form-privacy{font-size:11.5px;line-height:1.6;color:#8a7666;margin:0 0 18px}
+.form-privacy a{color:#b07d3f;text-decoration:underline;text-underline-offset:2px}
 .form-spacer{height:16px}
 .form-spacer--lg{height:26px}
 

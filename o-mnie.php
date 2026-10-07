@@ -19,7 +19,7 @@ $jsonLd = [
         '@type' => 'Person',
         'name' => FIRM_LAWYER_NAME,
         'image' => SITE_URL . '/assets/img/weronika-lesna-o-mnie-1024.jpg',
-        'worksFor' => ['@type' => 'Organization', 'name' => FIRM_LABEL . ' ' . FIRM_LAWYER_NAME],
+        'worksFor' => ['@type' => 'Organization', 'name' => FIRM_LAWYER_NAME . ' ' . FIRM_LABEL],
         'alumniOf' => [
             ['@type' => 'CollegeOrUniversity', 'name' => 'Uniwersytet im. Adama Mickiewicza w Poznaniu'],
             ['@type' => 'CollegeOrUniversity', 'name' => 'Uniwersytet SWPS'],

@@ -5,6 +5,7 @@ $latestArticles = array_slice(get_articles(), 0, 2);
 $aboutLead = get_about_paragraphs(ABOUT_LEAD_COUNT);
 $trainingsOffer = get_trainings_offer();
 $latestTrainings = get_trainings(2);
+$trainingFull = false;
 require __DIR__ . '/includes/header.php';
 ?>
 
@@ -12,7 +13,7 @@ require __DIR__ . '/includes/header.php';
   <div class="grid-hero">
     <div data-reveal>
       <h1 class="hero-title">PRAWO.<br>ZAUFANIE.<br>SKUTECZNOŚĆ.</h1>
-      <p class="hero-lead">Profesjonalna pomoc prawna dla Ciebie i Twojej firmy. Skutecznie rozwiązujemy złożone problemy prawne.</p>
+      <p class="hero-lead">Zapewniam bezpośrednią obsługę stacjonarną w Kaliszu i Poznaniu oraz zdalne wsparcie prawne dla Klientów z całej Polski.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-gold" data-scroll-to="contact">Umów Konsultację</a>
         <a href="#about" class="hero-more" data-scroll-to="about">Dowiedz się więcej
@@ -24,7 +25,7 @@ require __DIR__ . '/includes/header.php';
       <div class="hero-portrait-frame">
         <picture>
           <source srcset="/assets/img/weronika-lesna-prawnik.webp" type="image/webp">
-          <img src="/assets/img/weronika-lesna-prawnik.jpg" width="920" height="1380" alt="<?= h(FIRM_LAWYER_NAME) ?> — Kancelaria Prawna w Kaliszu" fetchpriority="high" decoding="async">
+          <img src="/assets/img/weronika-lesna-prawnik.jpg" width="920" height="1380" alt="<?= h(FIRM_LAWYER_NAME) ?> — <?= h(FIRM_LABEL) ?> w Kaliszu" fetchpriority="high" decoding="async">
         </picture>
       </div>
     </div>
@@ -88,33 +89,33 @@ require __DIR__ . '/includes/header.php';
     <div class="divider-gold divider-gold--center" data-reveal></div>
     <div class="grid-spec" data-reveal data-reveal-delay="80">
       <div class="spec-card">
-        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1.5"></rect><path d="M8 7V5.4A2 2 0 0 1 10 3.4h4a2 2 0 0 1 2 2V7M3 12.5h18"></path></svg>
-        <h4 class="spec-title">Obsługa przedsiębiorców</h4>
-        <p class="spec-desc">Stałe doradztwo i bieżące sprawy związane z prowadzeniem działalności.</p>
-        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
-      </div>
-      <div class="spec-card">
-        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 12h6M9 16h6"></path></svg>
-        <h4 class="spec-title">Umowy</h4>
-        <p class="spec-desc">Przygotowanie, negocjowanie i analiza umów oraz dokumentacji.</p>
-        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
-      </div>
-      <div class="spec-card">
         <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M12 6.2 5 9M5 9l-2.4 5a2.7 2.7 0 0 0 4.8 0L5 9M12 6.2 19 9M19 9l-2.4 5a2.7 2.7 0 0 0 4.8 0L19 9"></path></svg>
         <h4 class="spec-title">Prawo cywilne</h4>
-        <p class="spec-desc">Roszczenia i odszkodowania, wezwania do zapłaty oraz polubowne rozwiązywanie sporów.</p>
+        <p class="spec-desc">Pomoc prawna dla osób fizycznych i przedsiębiorców, sprawy majątkowe, zobowiązania, odszkodowania oraz sprawy sądowe.</p>
+        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
+      </div>
+      <div class="spec-card">
+        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1.5"></rect><path d="M8 7V5.4A2 2 0 0 1 10 3.4h4a2 2 0 0 1 2 2V7M3 12.5h18"></path></svg>
+        <h4 class="spec-title">Prawo gospodarcze</h4>
+        <p class="spec-desc">Obsługa przedsiębiorców, umowy handlowe, spory gospodarcze oraz bieżące doradztwo w prowadzeniu i rozwoju działalności.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
       <div class="spec-card">
         <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg>
-        <h4 class="spec-title">Nieruchomości i inwestycje</h4>
-        <p class="spec-desc">Nabywanie i sprzedaż nieruchomości, najem, procesy inwestycyjne i budowlane oraz zarządzanie nieruchomościami.</p>
+        <h4 class="spec-title">Prawo nieruchomości</h4>
+        <p class="spec-desc">Nabywanie i sprzedaż nieruchomości, umowy najmu, procesy inwestycyjne oraz analiza dokumentacji i stanu prawnego nieruchomości.</p>
+        <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
+      </div>
+      <div class="spec-card">
+        <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 12h6M9 16h6"></path></svg>
+        <h4 class="spec-title">Prawo pracy</h4>
+        <p class="spec-desc">Umowy o pracę i cywilnoprawne, prawa i obowiązki pracodawców i pracowników, rozwiązywanie stosunków pracy i doradztwo kadrowe.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
       <div class="spec-card">
         <svg class="spec-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3z"></path><path d="M14 9h4l3 3.5V16h-7"></path><circle cx="7" cy="17.5" r="1.8"></circle><circle cx="17.5" cy="17.5" r="1.8"></circle></svg>
-        <h4 class="spec-title">Transport i spedycja</h4>
-        <p class="spec-desc">Umowy przewozu i spedycji, odpowiedzialność przewoźników i spedytorów, roszczenia i reklamacje w branży TSL.</p>
+        <h4 class="spec-title">Prawo transportowe i spedycja</h4>
+        <p class="spec-desc">Umowy przewozu i spedycji, odpowiedzialność przewoźników i spedytorów, dochodzenie roszczeń i reklamacje w branży transportowej.</p>
         <a href="#contact" class="link-arrow link-arrow--gold" data-scroll-to="contact">Dowiedz się więcej →</a>
       </div>
     </div>
