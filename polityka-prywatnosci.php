@@ -81,7 +81,7 @@ require __DIR__ . '/includes/header.php';
         <li>ograniczenia przetwarzania danych osobowych;</li>
         <li>przenoszenia danych osobowych, jeżeli ma to zastosowanie;</li>
         <li>wniesienia sprzeciwu wobec przetwarzania danych osobowych opartego na art. 6 ust. 1 lit. e lub f RODO;</li>
-        <li>cofnięcia zgody na przetwarzanie danych osobowych w dowolnym momencie, jeżeli przetwarzanie odbywa się na podstawie zgody.</li>
+        <li>cofnięcia zgody na przetwarzanie danych osobowych w dowolnym momencie – bez wpływu na zgodność z prawem przetwarzania, którego dokonano na podstawie zgody przed jej cofnięciem.</li>
       </ul>
       <p>W celu realizacji swoich praw można skontaktować się z Administratorem pod adresem e-mail: <?= $email ?>.</p>
       <p>Przysługuje Pani/Panu również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa), jeżeli uzna Pani/Pan, że przetwarzanie danych osobowych narusza przepisy RODO.</p>
@@ -93,14 +93,11 @@ require __DIR__ . '/includes/header.php';
       <h2>10. Zautomatyzowane podejmowanie decyzji i profilowanie</h2>
       <p>Pani/Pana dane osobowe nie będą wykorzystywane do podejmowania decyzji opartych wyłącznie na zautomatyzowanym przetwarzaniu, w tym profilowaniu, które wywoływałyby wobec Pani/Pana skutki prawne lub w podobny sposób istotnie wpływały na Panią/Pana.</p>
 
-      <h2>11. Tajemnica zawodowa</h2>
-      <p>Informacje przekazane Administratorowi w związku z udzielaniem pomocy prawnej objęte są tajemnicą zawodową, której zachowanie wynika z przepisów ustawy o radcach prawnych oraz zasad etyki zawodowej. Realizacja niektórych praw opisanych w pkt 8 może podlegać ograniczeniom w zakresie, w jakim prowadziłaby do naruszenia tej tajemnicy.</p>
-
-      <h2>12. Pliki cookies i dane techniczne</h2>
+      <h2>11. Pliki cookies i dane techniczne</h2>
       <p>Strona nie wykorzystuje plików cookies ani narzędzi analitycznych, reklamowych lub śledzących. Czcionki i inne zasoby strony są ładowane bezpośrednio z serwera strony, bez udziału zewnętrznych dostawców.</p>
       <p>Podczas korzystania ze strony serwer, na którym jest ona utrzymywana, automatycznie zapisuje w logach dane techniczne, takie jak adres IP, data i godzina zapytania, adres odwiedzanej podstrony oraz informacje o przeglądarce. Dane te są przetwarzane w celu zapewnienia bezpieczeństwa i prawidłowego działania strony – na podstawie art. 6 ust. 1 lit. f RODO – i nie są wykorzystywane do identyfikowania użytkowników.</p>
 
-      <h2>13. Zmiany polityki prywatności</h2>
+      <h2>12. Zmiany polityki prywatności</h2>
       <p>Administrator może aktualizować niniejsze informacje, w szczególności w razie zmiany przepisów lub sposobu przetwarzania danych. Aktualna wersja jest zawsze dostępna na tej stronie, wraz z datą ostatniej aktualizacji.</p>
     </div>
   </div>

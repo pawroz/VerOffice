@@ -50,7 +50,6 @@ $ogType = $ogType ?? 'website';
       <a href="/" class="nav-link" data-nav data-active="home"<?= $isHome ? ' data-scroll-to="home"' : '' ?>>Strona Główna</a>
       <a href="<?= h($homePrefix) ?>#about" class="nav-link<?= $activeStaticNav === 'about' ? ' is-active' : '' ?>" data-nav data-active="about" data-scroll-to="about">O Mnie</a>
       <a href="<?= h($homePrefix) ?>#spec" class="nav-link" data-nav data-active="spec" data-scroll-to="spec">Specjalizacje</a>
-      <a href="<?= h($homePrefix) ?>#spec" class="nav-link" data-nav data-active="none" data-scroll-to="spec">Usługi</a>
       <a href="/blog" class="nav-link<?= $activeStaticNav === 'blog' ? ' is-active' : '' ?>">Blog</a>
       <a href="/szkolenia" class="nav-link<?= $activeStaticNav === 'trainings' ? ' is-active' : '' ?>">Szkolenia</a>
       <a href="<?= h($homePrefix) ?>#contact" class="nav-link" data-nav data-active="contact" data-scroll-to="contact">Kontakt</a>

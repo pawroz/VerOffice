@@ -18,6 +18,8 @@ const FIRM_AVAILABILITY = 'Spotkania oraz konsultacje odbywają się po wcześni
 
 const SITE_TITLE = 'Weronika Leśna — Obsługa Prawna | Prawnik w Kaliszu i Poznaniu';
 const SITE_DESCRIPTION = 'Weronika Leśna Obsługa Prawna — Kalisz, Poznań i zdalnie w całej Polsce. Prawo cywilne, gospodarcze, nieruchomości, pracy oraz transportowe. Umów konsultację.';
+// TODO: domena jeszcze niekupiona — tymczasowy adres. Po zakupie zmienić tutaj
+// oraz w sitemap.xml i robots.txt.
 const SITE_URL = 'https://www.kancelaria-lesna.pl';
 
 // TODO przed publikacją: testowy adres — zmienić na skrzynkę firmową

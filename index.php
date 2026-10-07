@@ -151,7 +151,7 @@ require __DIR__ . '/includes/header.php';
     <div class="booking-panel">
       <div data-reveal>
         <h3 class="booking-title">Umów spotkanie</h3>
-        <p class="booking-lead">Wybierz dogodny termin konsultacji. Spotkanie może odbyć się stacjonarnie lub online.</p>
+        <p class="booking-lead">Wybierz dogodny termin konsultacji.</p>
         <button type="button" class="btn btn-gold" id="bookBtn">Zarezerwuj termin</button>
         <p class="booking-result" id="bookingResult"></p>
       </div>

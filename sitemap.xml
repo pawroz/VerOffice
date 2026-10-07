@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Artykuły poniżej to dane testowe (4 przykładowe wpisy) — zaktualizuj tę
-     listę, gdy zastąpisz je docelową treścią bloga. -->
+<!-- Przy dodaniu artykułu w data/articles.php dopisz tu jego adres /blog/{slug}. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.kancelaria-lesna.pl/</loc>
@@ -26,26 +25,6 @@
     <loc>https://www.kancelaria-lesna.pl/blog/ulga-na-start-przy-jdg</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.kancelaria-lesna.pl/blog/jak-skutecznie-dochodzic-swoich-praw</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.kancelaria-lesna.pl/blog/umowa-o-prace-na-co-zwrocic-uwage</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.kancelaria-lesna.pl/blog/rozwod-a-podzial-majatku</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.kancelaria-lesna.pl/blog/windykacja-naleznosci-w-obrocie-gospodarczym</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.kancelaria-lesna.pl/polityka-prywatnosci</loc>
