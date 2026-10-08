@@ -137,6 +137,9 @@
   contactModal.addEventListener('click', function (e) {
     if (e.target === contactModal) closeContactModal();
   });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && contactModal.classList.contains('is-open')) closeContactModal();
+  });
 
   contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -219,11 +222,13 @@
     return cells;
   }
 
-  // Do wyboru: dni robocze od jutra (dziś i weekendy wyłączone).
+  // Do wyboru: dni z BOOKING_WEEKDAYS (config.php, przekazane w data-weekdays), od jutra.
+  var allowedWeekdays = (calGrid.getAttribute('data-weekdays') || '1,2,3,4,5').split(',').map(Number);
+
   function isBookable(year, month, day) {
     var date = new Date(year, month, day);
-    var weekday = date.getDay();
-    return date > today && weekday !== 0 && weekday !== 6;
+    var isoWeekday = date.getDay() || 7; // 1 = pon … 7 = niedz
+    return date > today && allowedWeekdays.indexOf(isoWeekday) !== -1;
   }
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }

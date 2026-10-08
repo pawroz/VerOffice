@@ -55,7 +55,7 @@ require __DIR__ . '/includes/header.php';
         <svg class="feature-icon" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"></circle><path d="M8.5 12.5 7 21l5-3 5 3-1.5-8.5"></path></svg>
         <div>
           <h4 class="feature-title">Doświadczenie</h4>
-          <p class="feature-desc">Kilkuletnia praktyka w obsłudze prawnej przedsiębiorców.</p>
+          <p class="feature-desc">Kilkuletnia praktyka w obsłudze prawnej.</p>
         </div>
       </div>
       <div class="feature-row">
@@ -165,7 +165,7 @@ require __DIR__ . '/includes/header.php';
           <span class="cal-weekday">PON</span><span class="cal-weekday">WT</span><span class="cal-weekday">ŚR</span>
           <span class="cal-weekday">CZW</span><span class="cal-weekday">PT</span><span class="cal-weekday">SOB</span><span class="cal-weekday">NIEDZ</span>
         </div>
-        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-grid" id="calGrid" data-weekdays="<?= h(implode(',', BOOKING_WEEKDAYS)) ?>"></div>
         <div class="cal-divider"></div>
         <div class="hours-row">
           <span class="hours-label">Dostępne godziny:</span>

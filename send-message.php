@@ -52,7 +52,7 @@ function contact_rate_limited(string $ip): bool
 }
 
 /**
- * Termin z kalendarza „Umów spotkanie”: dzień roboczy od jutra i godzina
+ * Termin z kalendarza „Umów spotkanie”: dzień z BOOKING_WEEKDAYS od jutra i godzina
  * z BOOKING_HOURS (te same zasady co w kalendarzu na stronie).
  * Zwraca opis do maila, null gdy terminu nie podano, false gdy jest błędny.
  */
@@ -67,10 +67,10 @@ function booking_label(string $date, string $hour): string|null|false
         return false;
     }
     $today = new DateTimeImmutable('today', $tz);
-    if ($day <= $today || (int) $day->format('N') >= 6 || $day > $today->modify('+1 year')) {
+    if ($day <= $today || !in_array((int) $day->format('N'), BOOKING_WEEKDAYS, true) || $day > $today->modify('+1 year')) {
         return false;
     }
-    $weekdays = [1 => 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek'];
+    $weekdays = [1 => 'poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota', 'niedziela'];
     return format_date_pl($date) . ' (' . $weekdays[(int) $day->format('N')] . '), godz. ' . $hour;
 }
 

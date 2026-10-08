@@ -14,8 +14,10 @@ const FIRM_LEGAL_NAME = 'Weronika Leśna Obsługa Prawna Kalisz';
 const FIRM_NIP = '6182214105';
 const PRIVACY_POLICY_UPDATED = '2026-10-06';
 
-// Godziny do wyboru w kalendarzu „Umów spotkanie” (pon–pt, od jutra) — sprawdzane też na serwerze.
-const BOOKING_HOURS = ['10:00', '12:00', '15:00', '17:00'];
+// Kalendarz „Umów spotkanie”: dni tygodnia (1 = pon … 7 = niedz) i godziny do wyboru,
+// od jutra. Używane w kalendarzu na stronie i w walidacji na serwerze.
+const BOOKING_WEEKDAYS = [1, 2, 3, 4, 5, 6];
+const BOOKING_HOURS = ['8:00', '10:00', '12:00', '15:00', '17:00', '18:00', '19:00'];
 
 const FIRM_AVAILABILITY = 'Spotkania oraz konsultacje odbywają się po wcześniejszym umówieniu terminu.';
 
