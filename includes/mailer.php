@@ -25,7 +25,7 @@ function load_mail_config(): ?array
  * Wysyła wiadomość z formularza kontaktowego przez SMTP.
  * Zwraca true przy sukcesie; szczegóły błędu trafiają do logu serwera, nie do przeglądarki.
  */
-function send_contact_mail(string $name, string $email, string $message): bool
+function send_contact_mail(string $name, string $email, string $message, string $phone = '', ?string $bookingLabel = null): bool
 {
     $config = load_mail_config();
     if ($config === null) {
@@ -54,10 +54,19 @@ function send_contact_mail(string $name, string $email, string $message): bool
         // „Odpowiedz” w skrzynce trafia od razu do osoby, która napisała.
         $mail->addReplyTo($email, $name);
 
-        $mail->Subject = 'Wiadomość ze strony ' . $host . ' — ' . $name;
-        $mail->Body = "Nowa wiadomość z formularza kontaktowego na stronie {$host}.\n\n"
+        if ($bookingLabel !== null) {
+            $mail->Subject = 'Prośba o termin: ' . $bookingLabel . ' — ' . $name;
+            $intro = "Nowa prośba o termin konsultacji ze strony {$host}.\n\n"
+                . "Proponowany termin: {$bookingLabel}\n"
+                . "(Termin nie jest rezerwowany automatycznie — potwierdź go lub zaproponuj inny.)\n\n";
+        } else {
+            $mail->Subject = 'Wiadomość ze strony ' . $host . ' — ' . $name;
+            $intro = "Nowa wiadomość z formularza kontaktowego na stronie {$host}.\n\n";
+        }
+        $mail->Body = $intro
             . "Imię i nazwisko: {$name}\n"
             . "E-mail: {$email}\n"
+            . ($phone !== '' ? "Telefon: {$phone}\n" : '')
             . "Wysłano: {$sentAt}\n\n"
             . "Wiadomość:\n{$message}\n\n"
             . "—\nAby odpowiedzieć, użyj opcji „Odpowiedz” — wiadomość trafi bezpośrednio do nadawcy.\n";

@@ -152,7 +152,7 @@ require __DIR__ . '/includes/header.php';
       <div data-reveal>
         <h3 class="booking-title">Umów spotkanie</h3>
         <p class="booking-lead">Wybierz dogodny termin konsultacji.</p>
-        <button type="button" class="btn btn-gold" id="bookBtn">Zarezerwuj termin</button>
+        <button type="button" class="btn btn-gold" id="bookBtn">Poproś o termin</button>
         <p class="booking-result" id="bookingResult"></p>
       </div>
       <div data-reveal data-reveal-delay="100">
@@ -169,10 +169,9 @@ require __DIR__ . '/includes/header.php';
         <div class="cal-divider"></div>
         <div class="hours-row">
           <span class="hours-label">Dostępne godziny:</span>
-          <button type="button" class="hour-chip" data-hour="10:00">10:00</button>
-          <button type="button" class="hour-chip" data-hour="12:00">12:00</button>
-          <button type="button" class="hour-chip" data-hour="15:00">15:00</button>
-          <button type="button" class="hour-chip" data-hour="17:00">17:00</button>
+          <?php foreach (BOOKING_HOURS as $hour): ?>
+            <button type="button" class="hour-chip" data-hour="<?= h($hour) ?>"><?= h($hour) ?></button>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>

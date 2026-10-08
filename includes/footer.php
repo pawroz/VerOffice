@@ -75,14 +75,18 @@ $activeStaticNav = $activeStaticNav ?? null;
 
     <div class="modal-success">
       <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C6A06A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 20px;display:block"><circle cx="12" cy="12" r="10"></circle><path d="m8 12 3 3 5-6"></path></svg>
-      <h3 class="modal-title">Dziękujemy</h3>
-      <p class="modal-desc">Wiadomość została wysłana. Odpowiemy najszybciej, jak to możliwe.</p>
+      <h3 class="modal-title">Dziękuję</h3>
+      <p class="modal-desc" id="cfSuccessDesc">Wiadomość została wysłana. Odpowiem najszybciej, jak to możliwe.</p>
       <button type="button" class="btn btn-dark" id="modalCloseBtn2">Zamknij</button>
     </div>
 
     <form class="modal-form" id="contactForm" novalidate>
-      <h3 class="modal-title">Napisz wiadomość</h3>
+      <h3 class="modal-title" id="cfTitle">Napisz wiadomość</h3>
       <div class="divider-gold" style="width:44px"></div>
+
+      <p class="modal-booking" id="cfBooking" hidden>Wybrany termin: <strong id="cfBookingLabel"></strong></p>
+      <input type="hidden" name="booking_date" id="cf-booking-date">
+      <input type="hidden" name="booking_hour" id="cf-booking-hour">
 
       <input type="text" name="website" id="cf-website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
 
@@ -96,14 +100,20 @@ $activeStaticNav = $activeStaticNav ?? null;
       <p class="form-error" id="cf-email-error">Podaj poprawny adres e-mail.</p>
       <div class="form-spacer"></div>
 
+      <label class="form-label" for="cf-phone">Telefon (opcjonalnie)</label>
+      <input class="form-input" type="tel" id="cf-phone" name="phone" autocomplete="tel">
+      <p class="form-error" id="cf-phone-error">Podaj poprawny numer telefonu.</p>
+      <div class="form-spacer"></div>
+
       <label class="form-label" for="cf-msg">Wiadomość</label>
-      <textarea class="form-input" id="cf-msg" name="msg" rows="4"></textarea>
+      <textarea class="form-input" id="cf-msg" name="msg" rows="4" aria-describedby="cf-msg-hint"></textarea>
+      <p class="form-hint" id="cf-msg-hint">Opisz krótko, w jakiej sprawie chcesz się skonsultować — szczegóły i dokumenty omówimy na spotkaniu.</p>
       <p class="form-error" id="cf-msg-error">Napisz treść wiadomości.</p>
       <div class="form-spacer--lg"></div>
 
       <p class="form-error" id="cf-server-error">Nie udało się wysłać wiadomości. Spróbuj ponownie lub zadzwoń: <?= h(FIRM_PHONE) ?>.</p>
 
-      <p class="form-privacy">Administratorem danych podanych w formularzu jest <?= h(FIRM_LAWYER_NAME) ?>. Dane przetwarzam wyłącznie w celu odpowiedzi na wiadomość i dalszej korespondencji. Szczegóły, w tym przysługujące Ci prawa: <a href="/polityka-prywatnosci" target="_blank" rel="noopener">Polityka prywatności (RODO)</a>.</p>
+      <p class="form-privacy">Administratorem danych podanych w formularzu jest <?= h(FIRM_LAWYER_NAME) ?>. Dane przetwarzam wyłącznie w celu odpowiedzi na wiadomość lub ustalenia terminu konsultacji oraz dalszej korespondencji. Szczegóły, w tym przysługujące Ci prawa: <a href="/polityka-prywatnosci" target="_blank" rel="noopener">Polityka prywatności (RODO)</a>.</p>
 
       <button type="submit" class="btn btn-gold btn-block" id="cfSubmitBtn">Wyślij wiadomość</button>
     </form>

@@ -8,11 +8,14 @@ const BRAND_TAGLINE = 'OBSŁUGA PRAWNA';
 const FIRM_ADDRESS_LINE1 = 'ul. Łowiecka 7';
 const FIRM_ADDRESS_LINE2 = '62-800 Kalisz';
 const FIRM_PHONE = '+48 665 782 601';
-const FIRM_EMAIL = 'lesna.prawnik@gmail.com';
+const FIRM_EMAIL = 'kontakt@lesnaprawo.pl';
 // Dane rejestrowe (CEIDG) — używane w polityce prywatności (RODO).
 const FIRM_LEGAL_NAME = 'Weronika Leśna Obsługa Prawna Kalisz';
 const FIRM_NIP = '6182214105';
 const PRIVACY_POLICY_UPDATED = '2026-10-06';
+
+// Godziny do wyboru w kalendarzu „Umów spotkanie” (pon–pt, od jutra) — sprawdzane też na serwerze.
+const BOOKING_HOURS = ['10:00', '12:00', '15:00', '17:00'];
 
 const FIRM_AVAILABILITY = 'Spotkania oraz konsultacje odbywają się po wcześniejszym umówieniu terminu.';
 

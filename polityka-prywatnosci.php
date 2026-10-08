@@ -36,7 +36,7 @@ require __DIR__ . '/includes/header.php';
       <p>W sprawach związanych z przetwarzaniem danych osobowych można kontaktować się z Administratorem za pośrednictwem adresu e-mail: <?= $email ?>.</p>
 
       <h2>3. Zakres przetwarzanych danych</h2>
-      <p>W przypadku kontaktu przez formularz kontaktowy Administrator przetwarza podane w nim dane: imię i nazwisko, adres e-mail oraz treść wiadomości. W przypadku kontaktu e-mailowego lub telefonicznego przetwarzane są dane przekazane w tej korespondencji, a w przypadku zawarcia umowy — dane niezbędne do jej zawarcia, wykonania i rozliczenia.</p>
+      <p>W przypadku kontaktu przez formularz kontaktowy Administrator przetwarza podane w nim dane: imię i nazwisko, adres e-mail, numer telefonu (jeżeli został podany), treść wiadomości oraz – w przypadku prośby o termin – wybrany termin konsultacji. W przypadku kontaktu e-mailowego lub telefonicznego przetwarzane są dane przekazane w tej korespondencji, a w przypadku zawarcia umowy — dane niezbędne do jej zawarcia, wykonania i rozliczenia.</p>
 
       <h2>4. Cele i podstawy prawne przetwarzania danych osobowych</h2>
       <p>Pani/Pana dane osobowe mogą być przetwarzane w następujących celach:</p>

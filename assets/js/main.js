@@ -94,7 +94,27 @@
   var modalCloseBtn2 = document.getElementById('modalCloseBtn2');
   var contactForm = document.getElementById('contactForm');
 
-  function openContactModal() {
+  var cfTitle = document.getElementById('cfTitle');
+  var cfBooking = document.getElementById('cfBooking');
+  var cfBookingLabel = document.getElementById('cfBookingLabel');
+  var cfBookingDate = document.getElementById('cf-booking-date');
+  var cfBookingHour = document.getElementById('cf-booking-hour');
+  var cfSuccessDesc = document.getElementById('cfSuccessDesc');
+  var cfSubmitBtn = document.getElementById('cfSubmitBtn');
+
+  // booking: null (zwykła wiadomość) albo { date: 'RRRR-MM-DD', hour: 'GG:MM', label: '…' }
+  // z kalendarza „Umów spotkanie” — ten sam formularz, ta sama wysyłka.
+  function openContactModal(booking) {
+    var isBooking = !!booking;
+    cfTitle.textContent = isBooking ? 'Prośba o termin konsultacji' : 'Napisz wiadomość';
+    cfBooking.hidden = !isBooking;
+    cfBookingLabel.textContent = isBooking ? booking.label : '';
+    cfBookingDate.value = isBooking ? booking.date : '';
+    cfBookingHour.value = isBooking ? booking.hour : '';
+    cfSubmitBtn.textContent = isBooking ? 'Wyślij prośbę o termin' : 'Wyślij wiadomość';
+    cfSuccessDesc.textContent = isBooking
+      ? 'Prośba o termin została wysłana. Potwierdzę go mailowo lub telefonicznie.'
+      : 'Wiadomość została wysłana. Odpowiem najszybciej, jak to możliwe.';
     contactModalBox.classList.remove('is-sent');
     clearFormErrors();
     contactModal.classList.add('is-open');
@@ -110,7 +130,7 @@
   // The modal lives in the shared footer, so any page can open it with a
   // [data-open-contact] trigger (homepage contact section, /szkolenia CTA).
   document.querySelectorAll('[data-open-contact]').forEach(function (btn) {
-    btn.addEventListener('click', openContactModal);
+    btn.addEventListener('click', function () { openContactModal(null); });
   });
   modalCloseBtn.addEventListener('click', closeContactModal);
   modalCloseBtn2.addEventListener('click', closeContactModal);
@@ -124,23 +144,28 @@
 
     var name = document.getElementById('cf-name').value.trim();
     var email = document.getElementById('cf-email').value.trim();
+    var phone = document.getElementById('cf-phone').value.trim();
     var msg = document.getElementById('cf-msg').value.trim();
     var emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+    var phoneOk = phone === '' || /^[+()\d\s-]{7,20}$/.test(phone);
 
     var hasError = false;
     if (!name) { document.getElementById('cf-name-error').classList.add('is-visible'); hasError = true; }
     if (!emailOk) { document.getElementById('cf-email-error').classList.add('is-visible'); hasError = true; }
+    if (!phoneOk) { document.getElementById('cf-phone-error').classList.add('is-visible'); hasError = true; }
     if (!msg) { document.getElementById('cf-msg-error').classList.add('is-visible'); hasError = true; }
     if (hasError) return;
 
-    var submitBtn = document.getElementById('cfSubmitBtn');
+    var submitBtn = cfSubmitBtn;
     submitBtn.disabled = true;
+    var wasBooking = cfBookingDate.value !== '';
 
     fetch('/send-message.php', { method: 'POST', body: new FormData(contactForm) })
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data && data.success) {
           contactModalBox.classList.add('is-sent');
+          if (wasBooking) document.dispatchEvent(new CustomEvent('booking:sent'));
         } else {
           document.getElementById('cf-server-error').classList.add('is-visible');
         }
@@ -153,7 +178,8 @@
       });
   });
 
-  /* ---------- Booking calendar (front-end only, no backend/Google Calendar) ---------- */
+  /* ---------- Booking calendar → prośba o termin przez formularz kontaktowy ---------- */
+  /* Nie rezerwuje terminu — wysyła prośbę, którą Weronika potwierdza ręcznie. */
   /* Only present on the homepage contact section — guard the whole block. */
   var calGrid = document.getElementById('calGrid');
   if (calGrid) initBookingCalendar();
@@ -163,6 +189,7 @@
   var MONTHS_CAPS = ['STYCZEŃ', 'LUTY', 'MARZEC', 'KWIECIEŃ', 'MAJ', 'CZERWIEC', 'LIPIEC', 'SIERPIEŃ', 'WRZESIEŃ', 'PAŹDZIERNIK', 'LISTOPAD', 'GRUDZIEŃ'];
 
   var today = new Date();
+  today.setHours(0, 0, 0, 0);
   var cal = {
     month: today.getMonth(),
     year: today.getFullYear(),
@@ -192,23 +219,40 @@
     return cells;
   }
 
+  // Do wyboru: dni robocze od jutra (dziś i weekendy wyłączone).
+  function isBookable(year, month, day) {
+    var date = new Date(year, month, day);
+    var weekday = date.getDay();
+    return date > today && weekday !== 0 && weekday !== 6;
+  }
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  function resetResult() {
+    bookingResult.textContent = '';
+    bookingResult.className = 'booking-result';
+  }
+
   function renderCalendar() {
     calMonthLabel.textContent = MONTHS_CAPS[cal.month] + ' ' + cal.year;
+    calPrevBtn.disabled = cal.year === today.getFullYear() && cal.month === today.getMonth();
     calGrid.innerHTML = '';
     buildCells(cal.year, cal.month).forEach(function (cell) {
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.textContent = String(cell.dayNum);
+      var bookable = cell.inMonth && isBookable(cal.year, cal.month, cell.dayNum);
       var isSelected = cell.inMonth && cal.selected &&
         cal.selected.d === cell.dayNum && cal.selected.m === cal.month && cal.selected.y === cal.year;
-      btn.className = 'cal-cell' + (!cell.inMonth ? ' cal-cell--muted' : '') + (isSelected ? ' cal-cell--selected' : '');
-      if (cell.inMonth) {
+      btn.className = 'cal-cell' + (!bookable ? ' cal-cell--muted' : '') + (isSelected ? ' cal-cell--selected' : '');
+      if (bookable) {
         btn.addEventListener('click', function () {
           cal.selected = { d: cell.dayNum, m: cal.month, y: cal.year };
-          bookingResult.textContent = '';
-          bookingResult.className = 'booking-result';
+          resetResult();
           renderCalendar();
         });
+      } else {
+        btn.disabled = true;
       }
       calGrid.appendChild(btn);
     });
@@ -217,15 +261,11 @@
   calPrevBtn.addEventListener('click', function () {
     cal.month = cal.month === 0 ? 11 : cal.month - 1;
     cal.year = cal.month === 11 ? cal.year - 1 : cal.year;
-    bookingResult.textContent = '';
-    bookingResult.className = 'booking-result';
     renderCalendar();
   });
   calNextBtn.addEventListener('click', function () {
     cal.month = cal.month === 11 ? 0 : cal.month + 1;
     cal.year = cal.month === 0 ? cal.year + 1 : cal.year;
-    bookingResult.textContent = '';
-    bookingResult.className = 'booking-result';
     renderCalendar();
   });
 
@@ -233,20 +273,26 @@
     chip.addEventListener('click', function () {
       cal.selectedHour = chip.getAttribute('data-hour');
       hourChips.forEach(function (c) { c.classList.toggle('hour-chip--selected', c === chip); });
-      bookingResult.textContent = '';
-      bookingResult.className = 'booking-result';
+      resetResult();
     });
   });
 
   bookBtn.addEventListener('click', function () {
-    var inCurrentMonth = cal.selected && cal.selected.m === cal.month && cal.selected.y === cal.year;
-    if (!inCurrentMonth || !cal.selectedHour) {
-      bookingResult.textContent = 'Wybierz dzień w bieżącym miesiącu oraz godzinę spotkania.';
+    if (!cal.selected || !cal.selectedHour) {
+      bookingResult.textContent = 'Wybierz w kalendarzu dzień i godzinę spotkania.';
       bookingResult.className = 'booking-result is-fail';
       return;
     }
-    bookingResult.textContent = 'Rezerwacja wstępna: ' + cal.selected.d + ' ' + MONTHS_LOWER[cal.month] + ' ' +
-      cal.year + ', godz. ' + cal.selectedHour + '. Potwierdzimy telefonicznie.';
+    var s = cal.selected;
+    openContactModal({
+      date: s.y + '-' + pad(s.m + 1) + '-' + pad(s.d),
+      hour: cal.selectedHour,
+      label: s.d + ' ' + MONTHS_LOWER[s.m] + ' ' + s.y + ', godz. ' + cal.selectedHour,
+    });
+  });
+
+  document.addEventListener('booking:sent', function () {
+    bookingResult.textContent = 'Prośba o termin wysłana — potwierdzę go mailowo lub telefonicznie.';
     bookingResult.className = 'booking-result is-ok';
   });
 
