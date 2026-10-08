@@ -22,9 +22,6 @@ const SITE_DESCRIPTION = 'Weronika Leśna Obsługa Prawna — Kalisz, Poznań i 
 // robots.txt i przekierowania w .htaccess.
 const SITE_URL = 'https://lesnaprawo.pl';
 
-// TODO przed publikacją: testowy adres — zmienić na skrzynkę firmową
-// (najlepiej we własnej domenie zamiast prywatnego Gmaila — patrz polityka prywatności).
-const CONTACT_FORM_RECIPIENT = 'pawerozpochowski@gmail.com';
 
 function h(?string $value): string
 {

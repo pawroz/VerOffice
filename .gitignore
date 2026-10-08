@@ -2,3 +2,6 @@
 /.claude
 /storage/*.jsonl
 /docker*
+/includes/mail-config.php
+/storage/*
+!/storage/.htaccess
