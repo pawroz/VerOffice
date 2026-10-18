@@ -29,6 +29,13 @@ $ogType = $ogType ?? 'website';
 <meta property="og:description" content="<?= h($pageDescription) ?>">
 <meta property="og:url" content="<?= h($canonicalUrl) ?>">
 
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/img/icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/img/icons/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#241A16">
+
 <link rel="preload" href="/assets/fonts/cormorant-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>">
