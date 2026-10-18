@@ -7,9 +7,55 @@ declare(strict_types=1);
  * 'image' (opcjonalnie) — ścieżka w assets/img bez rozszerzenia; muszą istnieć
  *     wersje .webp i .jpg (1200×675). Brak = placeholder.
  * 'body' — lista bloków: string = akapit, ['h2' => '...'] = śródtytuł,
- *     ['box' => ['...', ...]] = wyróżniona ramka (przykład, orzeczenie).
+ *     ['list' => ['...', ...]] = lista wypunktowana,
+ *     ['box' => ['...', ...]] = wyróżniona ramka (przykład, orzeczenie, ważny termin).
  */
 return [
+    [
+        'slug' => 'nowe-przepisy-o-cyberbezpieczenstwie-ksc',
+        'title' => 'Nowe przepisy o cyberbezpieczeństwie już obowiązują. Czy Twoja firma musi się dostosować?',
+        'excerpt' => 'Nowelizacja ustawy o krajowym systemie cyberbezpieczeństwa: kogo obejmuje, jakie terminy obowiązują i jakie kary grożą podmiotom kluczowym i ważnym.',
+        'category' => 'Prawo przedsiębiorców',
+        'date' => '2026-10-18',
+        'image' => 'blog/cyberbezpieczenstwo-ksc',
+        'imageAlt' => 'Tarcza z kłódką połączona z siecią — ilustracja przepisów o cyberbezpieczeństwie',
+        'body' => [
+            '3 kwietnia 2026 r. weszła w życie nowelizacja ustawy o krajowym systemie cyberbezpieczeństwa (KSC), wdrażająca do polskiego prawa unijną dyrektywę NIS2. Przepisy nakładają nowe obowiązki na firmy, które spełniają definicję podmiotu kluczowego lub podmiotu ważnego.',
+            'Takie podmioty muszą przede wszystkim wpisać się do wykazu prowadzonego za pośrednictwem systemu S46 oraz wdrożyć system zarządzania bezpieczeństwem informacji (SZBI).',
+            ['box' => [
+                'Dla podmiotów, które spełniały kryteria już w dniu wejścia w życie nowelizacji, termin na wpis do wykazu upłynął 3 października 2026 r. Jeżeli Twoja firma podlega ustawie, a wpisu jeszcze nie dokonała, warto zrobić to niezwłocznie.',
+            ]],
+            ['h2' => 'Kogo dotyczą nowe przepisy?'],
+            'Ustawa obejmuje podmioty działające w określonych sektorach gospodarki, m.in. transportu, energetyki, ochrony zdrowia i infrastruktury cyfrowej.',
+            'O tym, czy firma podlega regulacji, decydują przede wszystkim dwa kryteria:',
+            ['list' => [
+                'rodzaj prowadzonej działalności,',
+                'wielkość przedsiębiorstwa.',
+            ]],
+            'Co do zasady kryterium wielkości dotyczy przedsiębiorstw średnich i dużych. W określonych przypadkach znaczenie mogą mieć także dane przedsiębiorstw powiązanych i partnerskich.',
+            'Sama wielkość firmy nie przesądza jednak o objęciu ustawą. Trzeba również sprawdzić, czy prowadzona działalność mieści się w sektorach i kategoriach wskazanych w załącznikach do ustawy – przy czym liczy się działalność faktycznie wykonywana, a nie tylko wpisana do rejestru.',
+            ['h2' => 'Podmiot kluczowy czy podmiot ważny?'],
+            'Przepisy rozróżniają dwie kategorie: podmioty kluczowe i podmioty ważne. O kwalifikacji decyduje rodzaj działalności oraz spełnienie odpowiednich kryteriów wielkości.',
+            'Rozróżnienie to ma praktyczne znaczenie – od niego zależy zakres obowiązków w zakresie cyberbezpieczeństwa oraz sposób sprawowania nadzoru.',
+            ['h2' => 'Jakie terminy należy uwzględnić?'],
+            'Przepisy przewidują konkretne terminy na dopełnienie formalności i dostosowanie działalności do nowych wymogów:',
+            ['list' => [
+                '6 miesięcy na wpis do wykazu – termin liczony od dnia spełnienia przesłanek kwalifikujących podmiot jako kluczowy lub ważny. Dla podmiotów, które spełniały te przesłanki już w dniu wejścia w życie nowelizacji, termin ten upłynął 3 października 2026 r.',
+                '12 miesięcy na realizację obowiązków ustawowych – liczonych od dnia spełnienia przesłanek uznania za podmiot kluczowy lub ważny.',
+                '24 miesiące na pierwszy audyt – w przypadku podmiotów kluczowych, liczone od dnia spełnienia przesłanek kwalifikacyjnych.',
+            ]],
+            'Nie warto odkładać weryfikacji na ostatnią chwilę. Najpierw trzeba ustalić, czy firma w ogóle podlega ustawie, a następnie określić, jakie obowiązki i terminy dotyczą jej w konkretnym przypadku.',
+            ['h2' => 'Jakie kary grożą za naruszenie przepisów?'],
+            'Ustawa przewiduje dotkliwe sankcje finansowe. Maksymalna kara może wynieść:',
+            ['list' => [
+                'dla podmiotu kluczowego – do 10 mln euro lub 2% rocznych przychodów z działalności gospodarczej, przy czym zastosowanie ma wyższa kwota; kara nie może być jednak niższa niż 20 000 zł;',
+                'dla podmiotu ważnego – do 7 mln euro lub 1,4% rocznych przychodów z działalności gospodarczej; kara nie może być niższa niż 15 000 zł.',
+            ]],
+            'W szczególnych przypadkach – gdy naruszenie powoduje poważne zagrożenie dla bezpieczeństwa państwa, życia lub zdrowia ludzi albo ryzyko poważnych szkód majątkowych lub zakłóceń w świadczeniu usług – kara może sięgnąć nawet 100 mln zł.',
+            ['h2' => 'Czy Twoja firma podlega ustawie?'],
+            'Jeśli nie masz pewności, czy Twoja firma spełnia kryteria podmiotu kluczowego lub ważnego, zapraszam do kontaktu – przeanalizuję Twoją działalność i wskażę, jakie obowiązki i terminy Cię dotyczą.',
+        ],
+    ],
     [
         'slug' => 'ulga-na-start-przy-jdg',
         'title' => 'Ulga na start przy JDG – kto może z niej skorzystać i jak długo trwa?',
