@@ -8,9 +8,63 @@ declare(strict_types=1);
  *     wersje .webp i .jpg (1200×675). Brak = placeholder.
  * 'body' — lista bloków: string = akapit, ['h2' => '...'] = śródtytuł,
  *     ['list' => ['...', ...]] = lista wypunktowana,
- *     ['box' => ['...', ...]] = wyróżniona ramka (przykład, orzeczenie, ważny termin).
+ *     ['box' => ['...', ...]] = wyróżniona ramka (przykład, orzeczenie, ważny termin),
+ *     ['note' => '...'] = przypis drobnym drukiem (np. zastrzeżenie na końcu).
  */
 return [
+    [
+        'slug' => 'kwalifikowany-podpis-elektroniczny',
+        'title' => 'Kwalifikowany podpis elektroniczny – kiedy można go używać i jakie ma skutki prawne?',
+        'excerpt' => 'Kiedy kwalifikowany podpis elektroniczny zastępuje podpis własnoręczny, czego nie zastąpi i czy druga strona musi zgodzić się na podpisanie umowy elektronicznie.',
+        'category' => 'Prawo cywilne',
+        'date' => '2026-11-01',
+        'image' => 'blog/kwalifikowany-podpis-elektroniczny',
+        'imageAlt' => 'Dokument na ekranie z odręcznym podpisem, pióro i pieczęć z zatwierdzeniem — ilustracja podpisu elektronicznego',
+        'body' => [
+            'Podpisywanie dokumentów elektronicznie staje się coraz popularniejsze. Umowy, oświadczenia i inne dokumenty można dziś przygotować oraz podpisać bez konieczności drukowania ich na papierze.',
+            ['h2' => 'Czym jest kwalifikowany podpis elektroniczny?'],
+            'Kodeks cywilny przewiduje formę elektroniczną jako odrębną formę dokonywania czynności prawnych (art. 78¹ § 1 k.c.). Kluczową rolę odgrywa w niej właśnie kwalifikowany podpis elektroniczny.',
+            'Aby zachować formę elektroniczną, należy:',
+            ['list' => [
+                'sporządzić oświadczenie woli w postaci elektronicznej, np. w pliku PDF;',
+                'opatrzyć je kwalifikowanym podpisem elektronicznym.',
+            ]],
+            'Samo wpisanie imienia i nazwiska w dokumencie, wklejenie obrazka podpisu czy wysłanie wiadomości e-mail nie wystarczy do zachowania formy elektronicznej w rozumieniu Kodeksu cywilnego.',
+            ['h2' => 'Jakie warunki musi spełniać kwalifikowany podpis elektroniczny?'],
+            'Kwalifikowany podpis elektroniczny powinien spełniać cztery podstawowe wymagania. Musi:',
+            ['list' => [
+                'być przypisany do konkretnej osoby;',
+                'umożliwiać ustalenie tożsamości podpisującego;',
+                'być składany przy użyciu danych pozostających pod kontrolą podpisującego;',
+                'być powiązany z podpisanym dokumentem w taki sposób, aby można było wykryć jego późniejsze zmiany.',
+            ]],
+            ['h2' => 'Kiedy kwalifikowany podpis elektroniczny jest równoważny podpisowi własnoręcznemu?'],
+            'Zgodnie z art. 78¹ § 1–2 Kodeksu cywilnego oświadczenie woli złożone w postaci elektronicznej i opatrzone kwalifikowanym podpisem elektronicznym jest równoważne z oświadczeniem złożonym w formie pisemnej.',
+            'W praktyce oznacza to, że jeżeli przepisy wymagają zwykłej formy pisemnej, co do zasady można ją zachować również w formie elektronicznej – składając oświadczenie w postaci elektronicznej i opatrując je kwalifikowanym podpisem elektronicznym. Może to dotyczyć na przykład umów, oświadczeń czy innych dokumentów, dla których prawo przewiduje zwykłą formę pisemną.',
+            'Reguła ta ma zastosowanie nie tylko w prawie cywilnym, ale również w innych dziedzinach prawa, o ile przepisy szczególne nie stanowią inaczej.',
+            ['h2' => 'Czy podpis elektroniczny zastępuje podpis własnoręczny w każdej sytuacji?'],
+            'Nie – i to bardzo ważne ograniczenie. Forma elektroniczna jest równoważna zwykłej formie pisemnej, ale nie zastępuje automatycznie wszystkich szczególnych form czynności prawnych.',
+            'Przykładowo nie można zakładać, że kwalifikowany podpis elektroniczny zastąpi podpis własnoręczny wymagany przez przepisy prawa wekslowego. Dotyczy to również weksla in blanco, na którym podpis własnoręczny jest istotnym elementem.',
+            'Podobnie kwalifikowany podpis elektroniczny sam w sobie nie zastępuje:',
+            ['list' => [
+                'aktu notarialnego;',
+                'formy pisemnej z podpisem notarialnie lub urzędowo poświadczonym, gdy jest ona wymagana;',
+                'innych szczególnych form przewidzianych przez przepisy, np. dotyczących określonych papierów wartościowych.',
+            ]],
+            'Dlatego przed podpisaniem dokumentu warto sprawdzić, czy przepisy wymagają jedynie zwykłej formy pisemnej, czy też formy pisemnej kwalifikowanej.',
+            ['h2' => 'Czy druga strona musi zgodzić się na podpisanie umowy elektronicznie?'],
+            'Tak. Zastąpienie formy pisemnej równoważną jej formą elektroniczną wymaga zgody stron dokonujących czynności prawnej. Nie można jednostronnie narzucić kontrahentowi obowiązku spełnienia wymogu formy pisemnej przez złożenie oświadczenia woli przy pomocy kwalifikowanego podpisu elektronicznego.',
+            ['h2' => 'Podsumowanie'],
+            'Kwalifikowany podpis elektroniczny znacznie ułatwia zawieranie umów i podpisywanie dokumentów na odległość. Pozwala zachować formę elektroniczną, która jest równoważna zwykłej formie pisemnej. Trzeba jednak pamiętać o trzech zasadach:',
+            ['box' => [
+                '1. Dokument musi mieć postać elektroniczną i zostać opatrzony kwalifikowanym podpisem elektronicznym.',
+                '2. Podpis kwalifikowany jest co do zasady równoważny podpisowi własnoręcznemu, gdy chodzi o zwykłą formę pisemną.',
+                '3. Zastępuje jedynie zwykłą formę pisemną – nie zastąpi aktu notarialnego ani innych szczególnych form wymaganych przez przepisy.',
+            ]],
+            'Przed podpisaniem dokumentu elektronicznie warto zatem upewnić się, jaka forma jest wymagana w danej sytuacji. Pozwoli to uniknąć wątpliwości co do ważności czynności prawnej.',
+            ['note' => 'Artykuł ma charakter informacyjny i nie stanowi porady prawnej w indywidualnej sprawie.'],
+        ],
+    ],
     [
         'slug' => 'nowe-przepisy-o-cyberbezpieczenstwie-ksc',
         'title' => 'Nowe przepisy o cyberbezpieczeństwie już obowiązują. Czy Twoja firma musi się dostosować?',

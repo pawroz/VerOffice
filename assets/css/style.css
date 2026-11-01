@@ -228,6 +228,7 @@ img{max-width:100%;display:block}
 .legal-title{margin-top:34px}
 .legal-body h2{font-size:26px;margin:44px 0 14px}
 .legal-body a{color:#b07d3f;text-decoration:underline;text-underline-offset:2px}
+.article-body .article-note{font-size:13px;font-style:italic;color:#8a7666;border-top:1px solid rgba(45,36,30,.12);padding-top:18px;margin-top:36px}
 .article-box{background:#EFE8DC;border-left:2px solid #C6A06A;border-radius:0 3px 3px 0;padding:24px 28px;margin:0 0 28px}
 .article-box p{margin:0 0 12px}
 .article-box p:last-child{margin-bottom:0}

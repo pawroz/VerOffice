@@ -80,6 +80,8 @@ require __DIR__ . '/includes/header.php';
           <p><?= h($block) ?></p>
         <?php elseif (isset($block['h2'])): ?>
           <h2><?= h($block['h2']) ?></h2>
+        <?php elseif (isset($block['note'])): ?>
+          <p class="article-note"><?= h($block['note']) ?></p>
         <?php elseif (isset($block['list'])): ?>
           <ul>
             <?php foreach ($block['list'] as $item): ?>
